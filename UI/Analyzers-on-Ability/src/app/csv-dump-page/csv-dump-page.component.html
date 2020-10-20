@@ -1,0 +1,134 @@
+<ng4-loading-spinner  [timeout]="20000" [threshold]="700"></ng4-loading-spinner>
+<div class="container-fluid">
+  <div>
+    <MenuBar>
+      <!-- <mat-card></mat-card> -->
+    </MenuBar>
+  </div>
+  <!-- <div class="col-md-12"> -->
+  <div>
+    <NavdrawerComponent></NavdrawerComponent>
+  </div>
+  <div class=design>
+    <div class="col-lg-12">
+      <mat-card class="divcards conditionMonitoring">
+        <mat-card-content>
+          <div class="row">
+            <div class="col-lg-8 col-md-6 col-sm-4 col-small-device">
+              <h2 class="HeadName">Data dump</h2>
+              <p style="font-size: 20px;">Export the data from selected devices, choosing date range is optional.</p>
+            </div>
+            <!--{{Title}} Scheduler-->
+            <div class="col-lg-4 col-md-6 col-sm-6">
+              <div class="search">
+                <input id="SchedSearch"   type="text" class="searchTerm" placeholder="Search for device" autocomplete="off"
+                 appInputRestriction= "noSpecialChars" (keyup)="applyFilter($event.target.value)" style="color: white !important;">
+                <img src="./assets/images/search.png" class="searchIcon">
+              </div>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  <div class="design">
+    <div class="col-lg-12">
+      <mat-card class="divcards conditionMonitoring" style="margin-left:40px !important;margin-top:30px;margin-bottom:20px;">
+        <mat-card-content>
+          <div class="grid__wrapper">
+            <div class="header">
+              <h2 class="ContentName">Analyzer Data</h2>
+            </div>
+            
+            <div >
+              
+            <table mat-table [dataSource]="dataSource"  class="table-grid">
+           
+              <!-- Checkbox Column -->
+              <ng-container matColumnDef="select">
+                <th mat-header-cell *matHeaderCellDef style="width:10% !important;">
+                  <mat-checkbox class="startDate" (change)="$event ? masterToggle() : null" 
+                  [checked]="selection.hasValue() && isAllSelected()"
+                  [indeterminate]="selection.hasValue() && !isAllSelected()"
+                  [aria-label]="checkboxLabel()"
+                  >
+                  </mat-checkbox>
+                </th>
+                <td mat-cell *matCellDef="let row">
+                  <mat-checkbox (click)="$event.stopPropagation()"
+                  (change)="$event ? selection.toggle(row) : null;validateStartandEndDate()"
+                  [checked]="selection.isSelected(row)"
+                  [aria-label]="checkboxLabel(row)"
+                  >
+                  </mat-checkbox>
+                </td>
+              </ng-container>
+              <!-- Position Column -->
+              <ng-container matColumnDef="Analyzer_Name">
+                <th mat-header-cell *matHeaderCellDef class="first-column" style="width:30% !important"> NAME </th>
+                <td mat-cell [hidden]="!isTableHasData" *matCellDef="let element"> <span class="first_column_elements"> {{element.Analyzer_Name}}</span> </td>
+              </ng-container>
+              <!-- Name Column -->
+              <ng-container matColumnDef="DBGUID">
+                <th mat-header-cell *matHeaderCellDef class="second-column" style="width:40% !important"> INSTANCE NUMBER</th>
+                <td mat-cell *matCellDef="let element"> <span class="second_column_elements">{{element.DBGUID}}</span></td>
+              </ng-container>
+              <!-- Weight Column -->
+            
+              <ng-container  matColumnDef="StartDate" >
+                <th mat-header-cell *matHeaderCellDef class="third-column" style="padding-left:30px">START DATE</th>
+                <td mat-cell *matCellDef="let element" style="padding-left:30px">
+                  
+                  <mat-form-field floatLabel="never">
+                    <input type="date"   pattern="/(0\d{1}|1[0-2])\/([0-2]\d{1}|3[0-1])\/(19|20)\d{2}/" [ngClass]="{isSelected : !invalid}"   data-toggle="tooltip" data-placement="bottom" min="1900-01-01" max="2999-12-31" matInput (focusout)="validateStartandEndDate()" [value]="element.StartDate" #StartDate [(ngModel)]="element.StartDate"  placeholder="mm-dd-yyyy" >
+                    <!-- <mat-error *ngIf="StartDate.invalid"></mat-error> -->
+                    <!-- <span class="calender-img"><img src="./assets/images/calendar.png"></span> -->
+                  </mat-form-field>
+
+                </td>
+              </ng-container>
+              <!-- Symbol Column -->
+              <ng-container  matColumnDef="EndDate" >
+                <th mat-header-cell *matHeaderCellDef class="third-column" style="padding-left:30px">END DATE</th>
+                <td mat-cell *matCellDef="let element" style="padding-left:30px">
+                  <mat-form-field floatLabel="never">
+                    <input type="date" pattern="/(0\d{1}|1[0-2])\/([0-2]\d{1}|3[0-1])\/(19|20)\d{2}/"  (focusout)="validateStartandEndDate()" [value]="element.EndDate"  [(ngModel)]="element.EndDate"  min="1900-01-01" max="2999-12-31" matInput placeholder="mm-dd-yyyy" [formControl]="EndDate">
+                    <!-- <span class="calender-img"><img src="./assets/images/calendar.png"></span> -->
+                    <!--<mat-error *ngIf="name.invalid">{{getErrorMessage()}}</mat-error>--> 
+                  </mat-form-field>
+                </td>
+              </ng-container>
+
+          
+            
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+              (click)="selection(row)">
+              </tr>
+            </table>
+
+            <div [hidden]="isTableHasData" style="margin-top:4px;margin-bottom:35px;">
+             <span style="font-size: 16px;">No Data Found!</span>
+             <hr>
+             </div>
+        
+            <mat-paginator 
+            [matRippleColor]="'white'" [hidden]="!isTableHasData"
+             [pageSize]="pageSize"
+             [pageSizeOptions]="pageSizeOptions"
+            showFirstLastButtons>
+            </mat-paginator>
+         </div>
+            <!-- <div class="">
+              <button style="margin-left:20px;" class="btn btn-primary pull-right download"   (click)="logSelection()"><i class="fa fa-download" style="padding-right:25px;"></i> Send</button>
+              </div>
+              -->
+            <div class="download-btn-section">
+              <button  class="btn btn-primary download" [disabled]='isSelected' id="button"   (click)="postDATA()"><span class="download-image"><img src="./assets/images/download.png" style="padding-right:25px;"></span><span style="font-size: 14px !important;">Download</span></button>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

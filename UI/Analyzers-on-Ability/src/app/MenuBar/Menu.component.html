@@ -1,0 +1,32 @@
+<mat-card class="example-menu">
+      <mat-card-content>
+            <!-- <div class="image menu">
+                  <img src="./assets/images/menu.png">
+            </div> -->
+            <div class="image">
+                  <img class="logo" src="./assets/images/ABB.png">
+            </div>
+            <div id="ABBHeading1"  class="header">
+                  <h2>ABB Ability<sup>TM</sup> {{title}} for measurement devices
+                        <button class="toggle-button" [igxToggleAction]="toggleRef">                            
+                              <img  class="icon-logout" src="./assets/images/UI_UserInCircle_24.png"> 
+                        </button>
+                        <div id="toggle_Logout" class="toggle-content" igxToggle #toggleRef="toggle">
+                              <section class="toggle-section">
+                                    <mat-card-content>
+                                          <h3 class="ContentName">{{ LoggedInUser.Name}}</h3>
+                                          <div class="form-group">
+                                                <label>
+                                                      <span class="icon-email"></span> {{LoggedInUser.Email}}</label>
+                                          </div>
+                                          <div class="form-group" style="float:right;">
+                                                <button class="btn btn-primary logout" #btn_User_addupdate (click)="logout()">Logout</button>
+                                                <button type="button" class="btn btn-default ChangePassword" [routerLink]="['/ResetPass']">Change password</button>
+                                          </div>
+                                    </mat-card-content>
+                              </section>
+                        </div>
+                  </h2>
+            </div>
+      </mat-card-content>
+</mat-card>

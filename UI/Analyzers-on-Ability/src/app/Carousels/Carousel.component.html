@@ -1,0 +1,451 @@
+<ng4-loading-spinner></ng4-loading-spinner>
+<igx-carousel #carousel (onSlideChanged)="onSlideChanged(carousel)">    
+        <igx-slide *ngFor="let slide of _deviceInstanceList; let i = index;">
+           
+                <div class="row">  
+                  <div *ngIf="_deviceInstanceList.length==1;else showproperly">
+                    <mat-card class="col-md-6 carouselLayout">
+                        <mat-card-content >
+                               
+                          <div class="row navigation" (click)="pushVerificationDataFromHomePage(slide)" [routerLink]="['/individualdevice']" >
+                              <div class="col-md-6 Slider " >
+                                 <img src="./assets/images/Image.jpg" >  
+                                  <div id="DeviceTag1" class="ellipsis PDNAME" title="{{slide.Tag}}" >{{slide.Tag}} </div> 
+                                  <!-- <div>slide.length</div> -->
+                             </div>
+                               <div class="col-md-6 Slider" >                                                                
+                                  <div class="row">
+                                    
+                                    <!-- <div  id="DeviceTag2" class="col-md-12 tag ellipsis" title="{{slide.Tag}}">
+                                       {{slide.Tag}}
+                                    </div> -->
+                                    <div id="DeviceTag2" class="col-md-12 tag"></div>
+                                  </div>
+                                  <div class="row">
+                                     <div class="col-md-1 ">
+                                       <span class="icons clickable">
+                                         <img src="./assets/images/label.png">
+                                        </span>                                        
+                                     </div>
+                                     <div id="DeviceServis1" class="col-md-10 text ellipsis" title=" {{slide.ServISId}}">
+                                         {{slide.ServISId}}
+                                     </div>
+                                  </div>
+                                   <div class="row time">
+                                       <div class="col-md-1 ">
+                                         <span class="icons clickable">
+                                           <img src="./assets/images/name.png">
+                                          </span>                                        
+                                       </div>
+                                       <div  class="col-md-10 text"  title="{{slide.DBGUID}}">
+                                          <div id="DeviceDBGUID1" class="ellipsis">{{slide.DBGUID}}</div>
+                                       </div>
+                                     </div>
+                                     <hr class="line"style="color:white">
+
+                                        <div class="row time">
+                                          <div class="col-md-1 ">
+                                            <span class="icons clickable">
+                                              <img src="./assets/images/calendar.png">
+                                            </span>
+                                          </div>
+                                          <div id="DeviceCriteria1" class="col-md-2 text">
+                                             <div *ngIf="slide.Type=='DLY'">Daily</div>
+                                             <div *ngIf="slide.Type=='WKL'">Weekly</div>
+                                             <div *ngIf="slide.Type=='MTL'">Monthly</div>
+                                             <!-- {{slide.Type}} -->
+                                          </div>
+                                          <div class="col-md-1">
+                                             <span class="icons clickable">
+                                                 <img src="./assets/images/value.png">
+                                               </span>
+                                          </div>
+                                          <div id="DeviceDays1" class="col-md-3 text" >
+                                           <span *ngIf="slide.Type == DLY" [hidden]="slide.Value"> {{slide.Value}}</span>
+                                           <span *ngIf="slide.Type == 'WKL' && slide.Value == 01">Monday</span>
+                                                  <span *ngIf="slide.Type == 'WKL' && slide.Value == 02">Tuesday</span>
+                                                  <span *ngIf="slide.Type == 'WKL' && slide.Value == 03">Wednesday</span>
+                                                  <span *ngIf="slide.Type == 'WKL' && slide.Value == 04">Thursday</span>
+                                                  <span *ngIf="slide.Type == 'WKL' && slide.Value == 05">Friday</span>
+                                                  <span *ngIf="slide.Type =='WKL' && slide.Value == 06">Saturday</span>
+                                                  <span *ngIf="slide.Type == 'WKL' && slide.Value == 07">Sunday</span>                                                
+                                                 <span *ngIf="slide.Type == 'MTL'">{{slide.Value}}</span>                                             
+                                          </div>
+                                    
+
+                                          <div class="col-md-1">
+                                             <span class="icons clickable">
+                                                 <img src="./assets/images/Time.png">
+                                               </span>
+                                          </div>
+                                          <div  id="DeviceTime1" class="col-md-2 text">
+                                             {{slide.Time}} 
+                                          </div>
+                                        </div>
+                                        <hr class="line">
+                                        
+                                        <div class="row">
+                                       <div class="col-md-1">
+                                         <span class="icons clickable">
+                                         <img src="./assets/images/verification.png">
+                                       </span>
+                                       </div>
+                                       <div class="col-md-6 text" title="{{ slide.Time_Stamp}}">
+                                           <div id="DeviceDT1" class="timeStamp">{{slide.Time_Stamp}}</div>
+                                       </div>
+                                       <div id="DeviceStatus1" class="col-md-4 ">
+                                           <div *ngIf="slide.Last_Verification_Result == 1 " class="greenText">Passed</div>
+                                           <div *ngIf="slide.Last_Verification_Result == 2 " class="greyText">Incomplete</div>
+                                           <div *ngIf="slide.Last_Verification_Result == 3" class="redText">Failed</div>
+                                           <div *ngIf="slide.Last_Verification_Result == 4" class="orangeText">Warning</div>
+                                           <div *ngIf="slide.Last_Verification_Result == null || slide.Last_Verification_Result == ''"></div>
+                                       </div>
+                                     </div>
+                                     
+                               </div>  
+                             </div>
+                             <div class="row">
+                             <div class="col-md-6">
+                              <div *ngIf="slide.Last_Verification_Result == 1 " class="successBar">
+                                        
+                              </div>
+                              <div *ngIf="slide.Last_Verification_Result ==2 " class="fadedBar">                                              
+                             </div>
+
+                               <div *ngIf="slide.Last_Verification_Result == 3" class="reddBar">                                              
+                              </div>
+                              
+                               </div>
+                               <div class="col-md-6">
+                                   <div id="DeviceDownload1" class="download" *ngIf="slide.Last_Verification_Result == 1 ||slide.Last_Verification_Result == 3; else elsecondition">
+                                    <a class="report" (click) = "getVerificationResult(slide.ResultVerificationId,usersessionList.Email,usersessionList.Email)"> 
+                                       <span class="icons enableIcons"> <img src="./assets/images/download.png" class="DownloadIcon"></span></a>
+                                         <a class="report" (click) = "getVerificationResult(slide.ResultVerificationId,usersessionList.Email,usersessionList.Email)">DOWNLOAD</a>
+                                       </div>   
+                                   </div>
+                                   <ng-template #elsecondition>
+                                      <div id="DeviceDownload2" class="download" *ngIf="slide.Last_Verification_Result != 1 || slide.Last_Verification_Result != 3">
+                                        <span class="icons"> <img src="./assets/images/download.png" class="DownloadIcon"></span>
+                                           <a style="color: grey;cursor:default;">DOWNLOAD</a>
+                                  </div> 
+
+                            
+                                 </ng-template>
+                                 </div>
+                              
+                      </mat-card-content>
+                      
+                    </mat-card>
+
+                  </div> 
+                  <ng-template #showproperly> 
+                                   
+                    <mat-card class="col-md-6 carouselLayout" >
+                            <mat-card-content >
+                               
+                                 <div class="row navigation leftImage" (click)="pushVerificationDataFromHomePage(slide)" [routerLink]="['/individualdevice']">
+                                   <div class="col-md-6 Slider">
+                                      <img src="./assets/images/Image.jpg">  
+                                      
+                                       <div id="DeviceTag3" class="ellipsis PDNAME" >{{slide.Tag}} </div> 
+                                      
+                                       <!-- <div>slide.length</div> -->
+                                       
+                                  </div>
+                                    <div class="col-md-6 Slider" >                                                                
+                                 
+                                       <div class="row">
+                                         
+                                         <!-- <div id="DeviceTag4" class="col-md-12 tag ellipsis" title=" {{slide.Tag}}">
+                                            {{slide.Tag}}
+                                         </div> -->
+                                         <div id="DeviceTag4" class="col-md-12 tag"></div>
+                                       </div>
+                                      
+
+                                       <div class="row">
+                                          <div class="col-md-1">
+                                            <span class="icons clickable">
+                                              <img src="./assets/images/label.png">
+                                             </span>                                        
+                                          </div>
+                                          <div id="DeviceServis2" class="col-md-10 ellipsis text" title=" {{slide.ServISId}}">
+                                              {{slide.ServISId}}
+                                          </div>
+                                       </div>
+                                      
+
+                                        <div class="row time">
+                                            <div class="col-md-1">
+                                              <span class="icons clickable">
+                                                <img src="./assets/images/name.png">
+                                               </span>                                        
+                                            </div>
+                                            <div  class="col-md-10 text"  title="{{slide.DBGUID}}">
+                                               <div id="DeviceDBGUID2" class="ellipsis">{{slide.DBGUID}}</div>
+                                            </div>
+                                          </div>
+                                          <hr class="line">
+
+                                             <div class="row time">
+                                               <div class="col-md-1">
+                                                 <span class="icons clickable">
+                                                   <img src="./assets/images/calendar.png">
+                                                 </span>
+                                               </div>
+                                               <div id="DeviceCriteria2" class="col-md-2 text">
+                                                  <div *ngIf="slide.Type=='DLY'">Daily</div>
+                                                  <div *ngIf="slide.Type=='WKL'">Weekly</div>
+                                                  <div *ngIf="slide.Type=='MTL'">Monthly</div>
+                                                  <!-- {{slide.Type}} -->
+                                               </div>
+                                               <div class="col-md-1">
+                                                  <span class="icons clickable">
+                                                      <img src="./assets/images/value.png">
+                                                    </span>
+                                               </div>
+                                               <div id="DeviceDays2"  class="col-md-3 text" >
+                                                <span *ngIf="slide.Type == DLY" [hidden]="slide.Value"> {{slide.Value}}</span>
+                                                <span *ngIf="slide.Type == 'WKL' && slide.Value == 01">Monday</span>
+                                                       <span *ngIf="slide.Type == 'WKL' && slide.Value == 02">Tuesday</span>
+                                                       <span *ngIf="slide.Type == 'WKL' && slide.Value == 03">Wednesday</span>
+                                                       <span *ngIf="slide.Type == 'WKL' && slide.Value == 04">Thursday</span>
+                                                       <span *ngIf="slide.Type == 'WKL' && slide.Value == 05">Friday</span>
+                                                       <span *ngIf="slide.Type =='WKL' && slide.Value == 06">Saturday</span>
+                                                       <span *ngIf="slide.Type == 'WKL' && slide.Value == 07">Sunday</span>
+                                                       <span *ngIf="slide.Type == 'MTL'">{{slide.Value}}</span>    
+                                               </div>
+
+                                               <div class="col-md-1">
+                                                  <span class="icons clickable">
+                                                      <img src="./assets/images/Time.png">
+                                                    </span>
+                                               </div>
+                                               <div id="DeviceTime2" class="col-md-2 text">
+                                                  {{slide.Time}} 
+                                               </div>
+                                             </div>
+                                             <hr class="line">
+                                         
+                                             <div class="row">
+                                            <div class="col-md-1">
+                                              <span class="icons clickable">
+                                              <img src="./assets/images/verification.png">
+                                            </span>
+                                            </div>
+                                            <div class="col-md-6 text" title="{{ slide.Time_Stamp}}">
+                                                <div id="DeviceDT2" class="timeStamp">{{slide.Time_Stamp}}</div>
+                                            </div>
+                                            <div class="col-md-4 ">
+                                                <div *ngIf="slide.Last_Verification_Result == 1 " class="greenText">Passed</div>
+                                                <div *ngIf="slide.Last_Verification_Result == 2 " class="greyText">Incomplete</div>
+                                                <div *ngIf="slide.Last_Verification_Result == 3" class="redText">Failed</div>
+                                                <div *ngIf="slide.Last_Verification_Result == 4" class="orangeText">Warning</div>
+                                                <div *ngIf="slide.Last_Verification_Result == null || slide.Last_Verification_Result == ''"></div>
+                                            </div>
+                                          </div>
+                                          
+                                    </div>  
+                                  </div>
+                                  <div class="row">
+                                  <div class="col-md-6">
+                                   <div *ngIf="slide.Last_Verification_Result == 1 " class="successBar">
+                                             
+                                   </div>
+                                   <div *ngIf="slide.Last_Verification_Result ==2 " class="fadedBar">                                              
+                                  </div>
+
+                                    <div *ngIf="slide.Last_Verification_Result == 3" class="reddBar">                                              
+                                   </div>
+                                   <div *ngIf="slide.Last_Verification_Result == 4" class="orangeBar">                                              
+                                  </div>
+                                   
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div id="DeviceDownload3" class="download" *ngIf="slide.Last_Verification_Result == 1 ||slide.Last_Verification_Result == 3 || slide.Last_Verification_Result == 4; else elsecondition">
+                                         <a class="report" (click) = "getVerificationResult(slide.ResultVerificationId,usersessionList.Email,usersessionList.Email)">  <span class="icons enableIcons"> <img src="./assets/images/download.png" class="DownloadIcon"></span></a>
+                                              <a class="report" (click) = "getVerificationResult(slide.ResultVerificationId,usersessionList.Email,usersessionList.Email)">DOWNLOAD</a>
+                                            </div>   
+                                        </div>
+                                        <ng-template #elsecondition>
+                                           <div  id="DeviceDownload4" class="download" *ngIf="slide.Last_Verification_Result != 1 || slide.Last_Verification_Result != 3 || slide.Last_Verification_Result != 4">
+                                             <span class="icons"> <img src="./assets/images/download.png" class="DownloadIcon"></span>
+                                                <a style="color: grey;cursor:default;">DOWNLOAD</a>
+                                       </div> 
+                                      </ng-template>
+                                      </div>
+                                   
+                           </mat-card-content>
+                           
+                            
+                    </mat-card>
+                   
+                 </ng-template>
+      
+                     <mat-card class="col-md-6 carouselLayout">
+                              <mat-card-content *ngIf="i+1 < _deviceInstanceList.length ">
+                                                            
+                                    <div class="row navigation" (click)="pushVerificationDataFromHomePage(_deviceInstanceList[i+1])" [routerLink]="['/individualdevice']">
+                                        <div class="col-md-6 Slider">
+                                           <img src="./assets/images/Image.jpg">  
+                                            <div id="DILTag1" class="ellipsis PDNAME" title="{{_deviceInstanceList[i+1].Tag}}">{{_deviceInstanceList[i+1].Tag}} </div> 
+                                         </div>
+                                         <div class="col-md-6 Slider" >                                                                
+                                      
+                                            <div class="row">
+                                              
+                                              <!-- <div id="DILTag2" class="col-md-12 tag ellipsis" title=" {{_deviceInstanceList[i+1].Tag}}">
+                                                 {{_deviceInstanceList[i+1].Tag}}
+                                              </div> -->
+                                              <div id="DILTag2" class="col-md-12 tag"></div>
+                                            </div>
+     
+                                            <div class="row">
+                                               <div class="col-md-1">
+                                                 <span class="icons clickable" >
+                                                   <img src="./assets/images/label.png">
+                                                  </span>                                        
+                                               </div>
+                                               <div  id="DILServis1" class="col-md-10 ellipsis text" title="{{_deviceInstanceList[i+1].ServISId}}">
+                                                   {{_deviceInstanceList[i+1].ServISId}}
+                                               </div>
+                                             </div>
+     
+                                             <div class="row time">
+                                                 <div class="col-md-1">
+                                                   <span class="icons clickable">
+                                                     <img src="./assets/images/name.png">
+                                                    </span>                                        
+                                                 </div>
+                                                 <div  class="col-md-10 text" title="{{_deviceInstanceList[i+1].DBGUID}}">
+                                                   
+                                                   <div id="DILDBGUID1" class="ellipsis">{{_deviceInstanceList[i+1].DBGUID}}</div>
+                                                 </div>
+                                               </div>
+                                               <hr class="line">
+      
+                                                  <div class="row time">
+                                                    <div class="col-md-1">
+                                                      <span class="icons clickable">
+                                                        <img src="./assets/images/calendar.png">
+                                                      </span>
+                                                    </div>
+                                                    <div id="DILCriteria1" class="col-md-2 text">
+                                                        <div *ngIf="_deviceInstanceList[i+1].Type=='DLY'">Daily</div>
+                                                        <div *ngIf="_deviceInstanceList[i+1].Type=='WKL'">Weekly</div>
+                                                        <div *ngIf="_deviceInstanceList[i+1].Type=='MTL'">Monthly</div>
+                                                       <!-- {{_deviceInstanceList[i+1].Type}} -->
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                       <span class="icons clickable">
+                                                           <img src="./assets/images/value.png">
+                                                         </span>
+                                                    </div>
+                                                    <div id="DILDays1" class="col-md-3 text" >
+                                                       <span *ngIf="_deviceInstanceList[i+1].Type == DLY" [hidden]="slide.Value">{{_deviceInstanceList[i+1].Value}}</span>
+                                                       <span *ngIf="_deviceInstanceList[i+1].Type == 'WKL' && _deviceInstanceList[i+1].Value == 1">Monday</span>
+                                                       <span *ngIf="_deviceInstanceList[i+1].Type == 'WKL' && _deviceInstanceList[i+1].Value == 2">Tuesday</span>
+                                                       <span *ngIf="_deviceInstanceList[i+1].Type == 'WKL' && _deviceInstanceList[i+1].Value == 3">Wednesday</span>
+                                                       <span *ngIf="_deviceInstanceList[i+1].Type == 'WKL' && _deviceInstanceList[i+1].Value == 4">Thursday</span>
+                                                       <span *ngIf="_deviceInstanceList[i+1].Type == 'WKL' && _deviceInstanceList[i+1].Value == 5">Friday</span>
+                                                       <span *ngIf="_deviceInstanceList[i+1].Type == 'WKL' && _deviceInstanceList[i+1].Value == 6">Saturday</span>
+                                                       <span *ngIf="_deviceInstanceList[i+1].Type == 'WKL' && _deviceInstanceList[i+1].Value == 7">Sunday</span>
+                                                       <span *ngIf="_deviceInstanceList[i+1].Type == 'MTL'">{{_deviceInstanceList[i+1].Value}}</span>  
+                                                    </div>
+     
+                                                    <div class="col-md-1">
+                                                       <span class="icons clickable">
+                                                           <img src="./assets/images/Time.png">
+                                                         </span>
+                                                    </div>
+                                                    <div id="DILTime1" class="col-md-2 text">
+                                                       {{_deviceInstanceList[i+1].Time}} 
+                                                    </div>
+                                                  </div>
+                                                  <hr class="line">
+                                              
+                                                  <div class="row ">
+                                                 <div class="col-md-1">
+                                                   <span class="icons clickable">
+                                                   <img src="./assets/images/verification.png">
+                                                 </span>
+                                                 </div>
+                                                 <div class="col-md-6 text" title="{{_deviceInstanceList[i+1].Time_Stamp}}">
+                                                    <div id="DILTS1" class="timeStamp">{{ _deviceInstanceList[i+1].Time_Stamp}}</div>
+                                                    
+                                                 </div>
+                                                 <div id="DILStatus1" class="col-md-4 ">
+                                                     <div *ngIf="_deviceInstanceList[i+1].Last_Verification_Result == 1 " class="greenText">Passed</div>
+                                                     <div *ngIf="_deviceInstanceList[i+1].Last_Verification_Result == 2 " class="greyText">Incomplete</div>
+                                                     <div *ngIf="_deviceInstanceList[i+1].Last_Verification_Result == 3" class="redText">Failed</div>
+                                                     <div *ngIf="_deviceInstanceList[i+1].Last_Verification_Result == 4" class="orangeText">Warning</div>
+                                                 </div>
+                                               </div>
+                                         </div>  
+                                       </div>
+                                       <div class="row">
+                                       <div class="col-md-6">
+                                        <div *ngIf="_deviceInstanceList[i+1].Last_Verification_Result == 1 " class="successBar">
+                                                  
+                                        </div>
+                                        <div *ngIf="_deviceInstanceList[i+1].Last_Verification_Result ==2 " class="fadedBar">                                              
+                                         </div>
+     
+                                         <div *ngIf="_deviceInstanceList[i+1].Last_Verification_Result == 3" class="reddBar">                                              
+                                        </div>
+
+                                        <div *ngIf="_deviceInstanceList[i+1].Last_Verification_Result == 4" class="orangeBar">                                              
+                                        </div>
+                                         
+                                         </div>
+                                         <div class="col-md-6">
+                                           <div id="DILDownload1" class="download" *ngIf="_deviceInstanceList[i+1].Last_Verification_Result == 1 || _deviceInstanceList[i+1].Last_Verification_Result == 3 || _deviceInstanceList[i+1].Last_Verification_Result == 4; else elsecondition">
+                                            <a class="report" (click) = "getVerificationResult(_deviceInstanceList[i+1].ResultVerificationId,usersessionList.Email,usersessionList.Email)">  <span class="icons enableIcons "> <img src="./assets/images/download.png" class="DownloadIcon"></span></a>
+                                                 <a class="report" (click) = "getVerificationResult(_deviceInstanceList[i+1].ResultVerificationId,usersessionList.Email,usersessionList.Email)">DOWNLOAD</a>
+                                               </div>   
+                                           </div>
+                                           <ng-template #elsecondition>
+                                              <div id="DILDownload2" class="download" *ngIf="_deviceInstanceList[i+1].Last_Verification_Result != 1 || _deviceInstanceList[i+1].Last_Verification_Result != 3 ||_deviceInstanceList[i+1].Last_Verification_Result != 4">
+                                                <span class="icons"> <img src="./assets/images/download.png" class="DownloadIcon"></span>
+                                                   <a style="color: grey;cursor:default;">DOWNLOAD</a>
+                                          </div> 
+                                         </ng-template>
+                                         </div>
+                                        
+                               </mat-card-content>
+                     </mat-card> 
+        
+                </div>
+   
+              <!-- </div> -->
+        </igx-slide> 
+   
+        
+         <div *ngIf="_deviceInstanceList.length<=2; else enableNavigation">
+           
+          <a style="visibility:hidden;;" class="left-arrow" role="button" (click)="carousel.prev()">
+            <igx-icon fontSet="material" name="chevron_left"></igx-icon>
+          </a>
+        
+          <a style="visibility:hidden;" class="right-arrow" role="button"  (click)="carousel.next()">
+            <igx-icon fontSet="material" name="chevron_right"></igx-icon>
+          </a> 
+         </div>
+
+         <ng-template #enableNavigation> 
+         <div>
+            <ul class="wrapper">
+                <ul class="igx-carousel__indicators " style="cursor: pointer; pointer-events: none;" ></ul>
+              <a style="color: white;float:left; margin-top: 5px;" class="left-arrow" role="button" (click)="carousel.prev()">
+                <igx-icon fontSet="material" name="chevron_left"></igx-icon>
+              </a>
+            
+              <a  style="color: white;float:right; margin-top: 5px;" class="right-arrow" role="button" (click)="carousel.next()">
+                <igx-icon fontSet="material" name="chevron_right"></igx-icon>
+              </a>
+            </ul>
+          </div> 
+          </ng-template>    
+      
+ </igx-carousel>
+

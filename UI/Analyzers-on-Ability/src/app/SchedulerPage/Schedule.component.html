@@ -1,0 +1,834 @@
+<div class="container-fluid">
+    <MenuBar></MenuBar>
+
+    <div class="row">
+        <div>
+            <NavdrawerComponent></NavdrawerComponent>
+        </div>
+        <div class="col-11 shdesign">
+                <!-- <div class="col-lg-12">
+                        <mat-card class="divcards conditionMonitoring">
+                          <mat-card-content>
+                            <div class="row">
+                              <div class="col-lg-8 col-md-6 col-sm-4 col-small-device">
+                                <h2 class="HeadName">Data dump</h2>
+                                <p style="font-size: 20px;">Export the data from selected devices, choosing date range is optional.</p>
+                              </div>
+                              {{Title}} Scheduler
+                              <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="search">
+                                  <input id="SchedSearch"   type="text" class="searchTerm" placeholder="Search for device" autocomplete="off"
+                                   appInputRestriction= "noSpecialChars" (keyup)="applyFilter($event.target.value)" style="color: white !important;">
+                                  <img src="./assets/images/search.png" class="searchIcon">
+                                </div>
+                              </div>
+                            </div>
+                          </mat-card-content>
+                        </mat-card>
+                      </div> -->
+                   
+ <div class="row" style="margin-top: 1rem;margin-left:1px;">
+                <div class="col-12">
+                    <div class="card bgcard conditionMonitoring">
+                        <div class="row">
+                            <div id="CMS" class="col-lg-8 col-md-6 col-6" style="font-size: 32px;font-family:ABBvoice">
+                                <p>Condition Monitoring Scheduler</p>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-6">
+                                <input id="SchedSearch" type="text" class="searchTerm"
+                                    appInputRestriction="noSpecialChars" placeholder="Search for instance or tag"
+                                    [(ngModel)]="searchinstance">
+
+                                <img src="../../../../assets/images/search.png" class="searchIcon">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div> 
+
+
+
+            <div class="row" style="margin-left:1px">
+
+                <div class="col-12">
+                    <div class="row">
+                        <div id="srcfltr" class="col-lg-6 col-md-12 col-12" style="margin-top: 25px;"
+                            *ngFor="let item of (_schedulerInstanceList | searchfilter: { DBGUID:searchinstance, Tag:searchinstance, Type:searchinstance  }) ">
+                            <div class="card bgcard" style="height:400px;">
+                                <div id="view_{{ item.DBGUID }}">
+                                    <!-- <ng-template #dataCard> -->
+                                    <div *ngIf="item.Time!='';else noData">
+                                        <div class="row">
+
+                                            <div class="col-md-9 col-8">
+                                                <div class="row">
+                                                    <div class="col-1 ">
+                                                        <button id="SchedEdit" style="display: contents;cursor:pointer;"
+                                                            (click)="openEdit(item)">
+                                                            <img class="icon" src="../../../../assets/images/Edit.png">
+                                                        </button>
+
+                                                    </div>
+                                                    <div class="col-1">
+                                                        <button id="SchedDelete"
+                                                            style="display: contents;cursor:pointer"
+                                                            (click)="deleteSchedulerconfirm(item.DBGUID)">
+                                                            <img class="icon"
+                                                                src="../../../../assets/images/Delete.png">
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div id="SchedTag1" class="Tag ellipsis TitleHeading" style="padding-top: 10px;"  title= "{{item.Tag}}">
+                                                            {{ item.Tag}}
+                                                            <!-- <span ng-class="{'ellipsis': text.length > limit}">{{ text | limitTo:limit }}</span> -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-md-3 col-4">
+                                                <img class="deviceImage" src="../../../../assets/images/Image.jpg">
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-top: 1rem;"></div>
+                                        <div class="row">
+                                            <div class="col-8">
+                                                <div class="row">
+                                                    <div class="col-1">
+                                                        <span class="icons">
+                                                            <img src="../../../../assets/images/instance.png">
+                                                        </span>
+                                                    </div>
+                                                    <div id="SchedInstance1" class="col-11  deviceDetails ValueHaeding" style="margin-left:-16px">
+                                                        INSTANCE NUMBER
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div id="SchedDbguid1" class="col-12 ellipsis text "
+                                                        title="{{ item.DBGUID }}">
+                                                        {{ item.DBGUID }}</div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+
+
+                                        <div class="row" style="margin-top: 15px;"></div>
+                                        <div class="row">
+
+                                            <div class="col-6">
+                                                <div class="row">
+
+                                                    <div class="col-1">
+                                                        <span class="icons">
+                                                            <img src="../../../../assets/images/label.png">
+                                                        </span>
+                                                    </div>
+                                                    <div class="col-10 deviceDetails ValueHaeding">
+                                                        TAG
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div id="itemTag1 ellipsis" class="text" title="{{item.Tag}}"> {{ item.Tag }}</div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="row">
+                                                    <div class="col-1 icons">
+                                                        <span class="">
+                                                            <img src="../../../../assets/images/servisid.png">
+                                                        </span>
+                                                    </div>
+                                                    <div class="col-10 deviceDetails ValueHaeding">
+                                                        SERVIS ID
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div id="itemServis1" class="text ellipsis"  title="{{item.ServISId}}"> {{ item.ServISId }}
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row" style="margin-top: 10px;"></div>
+                                        <hr>
+                                        <div class="row" style="margin-top: 15px;"></div>
+
+                                        <div class="row">
+
+                                            <div class="col-3">
+                                                <div class="row">
+                                                    <div class="col-1">
+                                                        <span class="icons ">
+                                                            <img src="../../../../assets/images/value.png"
+                                                                class="iconvalue">
+                                                        </span>
+                                                    </div>
+                                                    <div class="col-10 deviceDetails ValueHaeding">
+                                                        VALUE
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-11 datevalue text"
+                                                        *ngIf="item.Value=='0'||item.Value==' ';else showvalue">
+
+                                                    </div>
+                                                    <ng-template #showvalue>
+                                                        <div id="itemDisplay1"
+                                                            class="col-11 text datevalue displaydatevalue">
+                                                            {{ item.Value }}
+                                                        </div>
+                                                    </ng-template>
+                                                </div>
+                                            </div>
+                                            <div class="col-4" style="border-right: 1px solid grey;">
+                                                <div class="row">
+                                                    <div class="col-1">
+                                                        <span class="icons">
+                                                            <img class="TimeIcon"
+                                                                src="../../../../assets/images/Time.png">
+                                                        </span>
+                                                    </div>
+                                                    <div class="col-10 deviceDetails ValueHaeding">
+                                                        TIME
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div id="itemTime1" class="col-11 text displaydateTime">
+                                                        {{ item.Time }}
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-1"></div>
+                                            <div class="col-4">
+                                                <div class="row">
+                                                    <div class="col-1">
+                                                        <span class="icons" >
+                                                            <img src="../../../../assets/images/Bell.png" style=" margin-bottom:3px">
+                                                        </span>
+                                                        <!-- <i class="fa fa-bell" style="color: white;"
+                                                            aria-hidden="true"></i> -->
+                                                    </div>
+                                                    <div class="col-10 deviceDetails ValueHaeding">
+                                                        ALARMS
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div id="AlarmType" class="col-12 text" *ngFor="let alrm of _FetchAlramdetails">
+
+
+                                                        <div *ngIf="alrm.Dbguid==item.DBGUID">
+                                                            <div
+                                                                *ngIf="alrm.AlarmProperties[0].LeadingEdge==1 && alrm.AlarmProperties[0].TrailingEdge==0">
+                                                                {{leadingalarm}}
+                                                            </div>
+                                                            <div
+                                                                *ngIf="alrm.AlarmProperties[0].TrailingEdge==1 && alrm.AlarmProperties[0].LeadingEdge==0">
+                                                                {{trailingalarm}}
+                                                            </div>
+                                                            <div
+                                                                *ngIf="alrm.AlarmProperties[0].TrailingEdge==1 && alrm.AlarmProperties[0].LeadingEdge==1">
+                                                                {{Alaram}}
+                                                            </div>
+                                                            <div
+                                                                *ngIf="alrm.AlarmProperties[0].TrailingEdge==0 && alrm.AlarmProperties[0].LeadingEdge==0">
+
+                                                            </div>
+                                                        </div>
+
+
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- <hr> -->
+                                        <!-- <div class="row" style="margin-top:1rem">
+                                        <div class="col-3"></div>
+                                        <div class="col-4"></div>
+                                        
+                                        </div> -->
+                                        <div class="row">
+
+                                            <div class="col-3">
+                                                <div class="row">
+
+                                                    <div class="col-1">
+                                                        <span class="icons">
+                                                            <img src="../../../../assets/images/calendar.png">
+                                                        </span>
+                                                    </div>
+                                                    <div class="col-10 deviceDetails ValueHaeding">
+                                                        TYPE
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div id="itemType1" class="col-11 text datevalue">
+                                                        <div *ngIf="item.Type=='DLY'">Daily</div>
+                                                        <div *ngIf="item.Type=='WKL'">Weekly</div>
+                                                        <div *ngIf="item.Type=='MTL'">Monthly</div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-4" style="border-right: 1px solid grey;">
+                                                <div class="row">
+                                                    <div class="col-1">
+                                                        <span class="icons">
+                                                            <img src="../../../../assets/images/verification.png">
+                                                        </span>
+                                                    </div>
+                                                    <div class="col-10 deviceDetails ValueHaeding">
+                                                        TIMESTAMP
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+
+                                                    <div id="itemTime2" class="col-11 text" style="margin-left:0px">
+                                                        {{item.Time_Stamp}}</div>
+                                                </div>
+                                            </div>
+
+
+
+
+                                        </div>
+
+                                    </div>
+
+                                    <ng-template #noData>
+                                        <div *ngIf=" item.Time==''">
+                                            <div class="row">
+                                                <div class="col-md-9 col-8">
+                                                </div>
+
+                                                <div class="col-md-3 col-4">
+                                                    <img class="deviceImage" src="../../../../assets/images/Image.jpg">
+
+
+                                                </div>
+
+                                            </div>
+                                            <div class="row" style="margin-top:1rem">
+                                            </div>
+                                            <div class="row">
+                                                <div id="itemTag2" class="col-md-12 Tag ellipsis" title="{{item.Tag}}">{{ item.Tag}}
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-8">
+                                                    <div class="row">
+                                                        <div class="col-1">
+                                                            <span class="icons">
+                                                                <img src="../../../../assets/images/instance.png">
+                                                            </span>
+                                                        </div>
+                                                        <div class="col-10  deviceDetails ValueHaeding" style="margin-left:-16px">
+                                                            INSTANCE NUMBER
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div id="itemDBGUID2" class="col-12 ellipsis text "
+                                                            title="{{ item.DBGUID }}">
+                                                            {{ item.DBGUID }}</div>
+
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+
+
+
+
+                                            <div class="row" style="margin-top: 15px;"></div>
+
+                                            <div class="row">
+
+                                                <div class="col-6">
+                                                    <div class="row">
+
+                                                        <div class="col-1">
+                                                            <span class="icons">
+                                                                <img src="../../../../assets/images/label.png">
+                                                            </span>
+                                                        </div>
+                                                        <div class="col-10 deviceDetails ValueHaeding" style="color: darkgrey;">
+                                                            TAG
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <div id="itemTag1" class="text ellipsis"  title="{{item.Tag}}"> {{ item.Tag }}</div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6">
+                                                    <div class="row">
+                                                        <div class="col-1 icons">
+                                                            <span class="">
+                                                                <img src="../../../../assets/images/servisid.png">
+                                                            </span>
+                                                        </div>
+                                                        <div class="col-10 deviceDetails ValueHaeding" style="color: darkgrey;">
+                                                            SERVIS ID
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <div id="itemServis1" class="text ellipsis" title="{{item.ServISId}}"> {{ item.ServISId }}
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="row" style="margin-top: 26px;"></div>
+
+                                            <hr>
+
+                                            <div class="row" style="margin-top: 15px;"></div>
+
+
+                                            <div class="row">
+
+                                                <div class="col-4">
+
+                                                    <div class="row">
+                                                        <div class="col-1">
+                                                            <span class="icons ">
+                                                                <img src="../../../../assets/images/value.png"
+                                                                    class="iconvalue">
+                                                            </span>
+                                                        </div>
+                                                        <div class="col-10 deviceDetails ValueHaeding" style="color: darkgrey;">
+                                                            VALUE
+                                                        </div>
+                                                    </div>
+
+
+                                                </div>
+
+                                                <div class="col-4">
+
+                                                    <div class="row">
+                                                        <div class="col-1 extraspace">
+                                                            <span class="icons">
+                                                                <img class="TimeIcon"
+                                                                    src="../../../../assets/images/Time.png">
+                                                            </span>
+                                                        </div>
+                                                        <div class="col-10 deviceDetails ValueHaeding" style="color: darkgrey;">
+                                                            TIME
+                                                        </div>
+                                                    </div>
+
+
+                                                </div>
+                                                
+                                                <div class="col-4">
+                                                    <div class="row">
+                                                        <div class="col-1">
+                                                            <span class="icons" >
+                                                                <img src="../../../../assets/images/Bell.png" style=" margin-bottom:3px">
+                                                            </span>
+
+                                                        </div>
+                                                        <div class="col-10 deviceDetails ValueHaeding" style="color: darkgrey;">
+                                                            ALARMS
+                                                        </div>
+                                                    </div>
+
+
+                                                </div>
+
+
+
+                                            </div>
+                                            <div class="row" style="margin-top:2.5rem"></div>
+                                            <div class="row">
+
+                                                <div class="col-4">
+                                                    <div class="row">
+                                                        <div class="col-1">
+                                                            <span class="icons">
+                                                                <img src="../../../../assets/images/calendar.png">
+                                                            </span>
+                                                        </div>
+                                                        <div class="col-10 deviceDetails ValueHaeding" style="color: darkgrey;">
+                                                            TYPE
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-4">
+                                                    <div class="row">
+                                                        <div class="col-1">
+                                                            <span class="icons">
+                                                                <img src="../../../../assets/images/verification.png">
+                                                            </span>
+                                                        </div>
+                                                        <div class="col-10 deviceDetails ValueHaeding" style="color: darkgrey;">
+                                                            TIMESTAMP
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+
+                                            </div>
+                                            <!-- <div class="row">
+                                                <div id="itemType1" class="col-3 datevalue">
+                                                    <div *ngIf="item.Type=='DLY'">Daily</div>
+                                                    <div *ngIf="item.Type=='WKL'">Weekly</div>
+                                                    <div *ngIf="item.Type=='MTL'">Monthly</div>
+
+                                                </div>
+
+                                                <div id="itemTime2" class="col-6 ">
+                                                    {{item.Time_Stamp}}</div>
+
+                                            </div> -->
+
+                                            <div class="row">
+                                                <div id="CnfgrBtn" class="col-12" style="text-align: right;">
+                                                    <button class="btn btn-primary" style="width:100px;"
+                                                        (click)="openEdit(item)">Configure</button>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </ng-template>
+
+                                    <!-- </ng-template> -->
+                                    <!-- <igx-dialog #dialogConfirm title="Delete Scheduler" [rightButtonLabel]="'Ok'"
+                        class="dialogNewRecord" [leftButtonLabel]="'Cancel'"
+                        (onLeftButtonSelect)="dialogConfirm.close()" (onRightButtonSelect)="deletSchedule()">
+                        <div class="dialogNewRecord">
+                            Are you sure to delete this ?
+                        </div>
+                    </igx-dialog> -->
+
+
+
+
+                                    <igx-dialog #dialogConfirm title="Delete Scheduler" [rightButtonLabel]="'OK'"
+                                        class="dialogNewRecord" [leftButtonLabel]="'Cancel'"
+                                        (onLeftButtonSelect)="dialogConfirm.close()"
+                                        (onRightButtonSelect)="deletSchedule()">
+                                        <div class="dialogNewRecord">
+                                            Clicking OK will delete data, do you want to proceed?
+                                        </div>
+                                    </igx-dialog>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="col-md-6 col-12">
+                <div class="card bgcard">
+        
+                </div>
+            </div> -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <igx-dialog #dialogFormsubmit title="" [closeOnOutsideSelect]="false" class="dialogNewFormRecord">
+        <div class="container" style="padding: 10px;">
+            <div class="row">
+                <div class="col-12" style="color: white;">
+
+
+                    <div class="row">
+                        <div class="col-12 TitleHeading" >
+                            Configure verification for :
+                        </div>
+
+                    </div>
+                    <div class="row" style="margin-top: 10px;"></div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <img class="deviceImage" src="../../../../assets/images/Image.jpg">
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 10px;"></div>
+
+
+
+
+
+
+                    <div class="row">
+                        <div class="col-1">
+                            <span class="icons">
+                                <img src="../../../../assets/images/instance.png">
+                            </span>
+                        </div>
+                        <div class="col-10  deviceDetails ValueHaeding" style="margin-left:-16px">
+                            INSTANCE NUMBER
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div id="INstanceDBGUID" class="col-12 ellipsis text " title=" {{ InstanceDBGUID }}"> {{ InstanceDBGUID }}</div>
+
+                    </div>
+                    <div class="row" style="margin-top: 0.5rem;"></div>
+                    <hr>
+                    <div class="row" style="margin-top: 0.5rem;"></div>
+                    <div class="space"></div>
+
+
+                    <form name="form" (ngSubmit)="f.form.valid && postScheduleInfo(f);" #f="ngForm" novalidate>
+                        <div class="form-row">
+                            <div class="form-group col-8">
+                                <label for="">
+                                    <span class="icons">
+                                        <img src="../../../../assets/images/label.png">
+                                    </span>
+                                    <span class="ValueHaeding"> NAME </span>
+                                </label>
+
+                                <input id="itemName" type="text" class="textvalue form-control" [(ngModel)]="model.Name"
+                                    name="Name" #Name="ngModel"
+                                    [ngClass]="{ 'is-invalid': f.submitted && Name.invalid }" required />
+                                <div *ngIf="f.submitted && Name.invalid" class="invalid-feedback">
+                                    <div *ngIf="Name.errors.required">Name is required</div>
+                                </div>
+                            </div>
+                            <div class="form-group col-4">
+                                <label for="">
+                                    <span class="icons">
+                                        <img src="../../../../assets/images/servisid.png">
+                                    </span>
+                                    <span class="ValueHaeding">SERVIS ID</span>     
+                                 </label>
+
+                                <input id="itemServis4" type="text" class="textvalue form-control"
+                                    [(ngModel)]="model.ServIS_Id" name="ServIS_Id" #ServIS_Id="ngModel"
+                                    [ngClass]="{ 'is-invalid': f.submitted && ServIS_Id.invalid }" required />
+                                <div *ngIf="f.submitted && ServIS_Id.invalid" class="invalid-feedback">
+                                    <div *ngIf="ServIS_Id.errors.required">Servis Id is required</div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="form-row">
+                            <div class="form-group col-12">
+                                <label for="">
+                                    <span class="icons">
+                                        <img src="../../../../assets/images/name.png">
+                                    </span>
+                                    <span class="ValueHaeding">TAG</span>
+                                </label>
+
+                                <input id=" itemTag4" type="text" class="textvalue form-control"
+                                    [(ngModel)]="model.TagName " #TagName="ngModel" name="TagName"
+                                    [ngClass]="{ 'is-invalid': f.submitted && TagName.invalid }" required />
+                                <div *ngIf="f.submitted && TagName.invalid" class="invalid-feedback">
+                                    <div *ngIf="TagName.errors.required">Tag is required</div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="form-row">
+                            <div class="form-group col-4">
+                                <label for="">
+                                    <span class="icons">
+                                        <img src="../../../../assets/images/calendar.png">
+                                    </span>
+                                    <span class="ValueHaeding">TYPE</span> 
+                                </label>
+
+                                <select class='form-control select-option' name="SchedType"
+                                    style="width: 100%;background: black;color: white;" [(ngModel)]='model.SchedType'
+                                    #SchedType="ngModel" (ngModelChange)='onOptionSelected($event,null)'
+                                    [ngClass]="{ 'is-invalid': f.submitted && SchedType.invalid }" required>
+
+                                    <option class='option' *ngFor='let option of options' [value]="option.value">
+                                        {{option.name}}</option>
+                                </select>
+
+                                <div *ngIf="f.submitted && SchedType.invalid" class="invalid-feedback">
+                                    <div *ngIf="SchedType.errors.required">Type is required</div>
+                                </div>
+                            </div>
+                            <div class="form-group col-4">
+                                <label for="">
+                                    <span class="icons">
+                                        <img src="../../../../assets/images/value.png">
+                                    </span>
+                                    <span class="ValueHaeding">VALUE</span> 
+                                </label>
+
+                                <span *ngIf="model.SchedType ==='DLY'">
+                                    <div style="margin-left:2rem">NA</div>
+
+                                </span>
+                                <span *ngIf="model.SchedType ==='WKL'">
+
+                                    <select class='form-control select-option' name="SchedValue"
+                                        [(ngModel)]='model.SchedValue' #SchedValue="ngModel"
+                                        style="width: 100%;background: black;color: white;"
+                                        (ngModelChange)='onOptionSelected(model.SchedType,Week.value)'>
+                                        <option *ngFor="let weekday of weekdays" value={{weekday.value}}>
+                                            {{weekday.dayname}}
+                                        </option>
+                                    </select>
+
+                                </span>
+
+
+                                <span name="Monthly" *ngIf="model.SchedType ==='MTL'">
+
+                                    <select class="form-control select-option" #SchedValue="ngModel" name="SchedValue"
+                                        [(ngModel)]='model.SchedValue'
+                                        style="width: 100%;background: black;color: white;"
+                                        (ngModelChange)='onOptionSelected(model.SchedType,model.SchedValue)'>
+
+                                        <option *ngFor="let monthlyOneDay of monthlyAllDays" value={{monthlyOneDay}}>
+                                            {{monthlyOneDay}}
+                                        </option>
+                                    </select>
+
+                                </span>
+
+
+                            </div>
+                            <div class="form-group col-4">
+                                <label for="">
+                                    <span class="icons">
+                                        <img class="TimeIcon" src="../../../../assets/images/Time.png">
+                                    </span>
+                                    <span class="ValueHaeding">TIME</span>
+                                </label>
+
+
+                                <input id="SelectTime" type="time" name="SchedTime" #SchedTime="ngModel"
+                                    [ngClass]="{ 'is-invalid': f.submitted && SchedTime.invalid }" required
+                                    class="Diaologtime textvalue form-control" [(ngModel)]="model.SchedTime " />
+                                <div *ngIf="f.submitted && SchedTime.invalid" class="invalid-feedback">
+                                    <div *ngIf="SchedTime.errors.required">Time is required</div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="form-row">
+                            <div class="form-group col-12">
+                                <label for="">
+                                    <span class="icons" >
+                                        <img src="../../../../assets/images/Bell.png " style=" margin-bottom:1px">
+                                    </span>
+                                    <span class="ValueHaeding"></span> ALARMS
+                                </label>
+
+                                <div class="row">
+                                    <div class="col-6">
+                                        <span class="icons">
+                                            <img src="../../../../assets/images/Arrow Up.png">
+                                        </span>
+                                        <span class="ValueHaeding"> LEADING EDGE</span>
+                                       
+                                    </div>
+                                    <div class="col-1">
+                                        <input type="radio" name="lededge" [(ngModel)]="model.LeadingEdge" value="1">
+                                        <!-- <span>Yes</span> -->
+                                    </div>
+                                    <div id="radioValue2"class="col-1 deviceDetails text" style="margin-left:-10px">
+                                        Yes
+                                    </div>
+                                    <div class="col-1">
+                                        <input type="radio" name="LeadingEdge" [(ngModel)]="model.LeadingEdge"
+                                            value="0">
+                                            <!-- <span>No</span> -->
+                                    </div>
+                                    <div id="radioValue3" class="col-1  text" style="margin-left:-10px">
+                                        No
+                                    </div>
+                                </div>
+
+                                <div class="row">
+
+                                    <div class="col-6">
+                                        <span class="icons">
+                                            <img src="../../../../assets/images/Arrow Down.png">
+                                        </span>
+                                        <span class="ValueHaeding">TRAILING EDGE</span>
+                                        
+                                    </div>
+                                    <div id="radioValue" class="col-1">
+                                        <input type="radio" name="TrailingEdge" [(ngModel)]="model.TrailingEdge"
+                                            value="1">
+                                    </div>
+                                    <div class="col-1  text" style="margin-left:-10px">
+                                        Yes
+                                    </div>
+                                    <div i="radioValue1" class="col-1">
+                                        <input type="radio" name="TrailingEdge" [(ngModel)]="model.TrailingEdge"
+                                            value="0">
+                                    </div>
+                                    <div class="col-1  text" style="margin-left:-10px">
+                                        No
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- <div class="form-row">
+                            <div class="form-group col-12">
+                             
+                            </div>
+                        </div> -->
+
+                        <div id="SaveCancel" class="row SaveCancel">
+                            <button
+                                [disabled]="model.SchedType!== 'DLY' && model.SchedValue==='NA' || model.SchedValue==='undefined' "
+                                class=" btn btn-primary Save">Save</button>
+                            <button class="btn btn-default Cancel" type="reset" (click)="onNoClick()">Cancel</button>
+
+                        </div>
+
+                    </form>
+
+
+
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+
+
+    </igx-dialog>
+
+
+</div>

@@ -1,0 +1,168 @@
+<ng4-loading-spinner [timeout]="30000" [threshold]="1000"></ng4-loading-spinner>
+<div class="container-fluid">
+    <div>
+        <MenuBar></MenuBar>
+    </div>
+    <div class="row">
+        <div >
+            <NavdrawerComponent></NavdrawerComponent>
+        </div>
+        <div class="col-md-11 design">
+            <div class="Card">
+                <mat-card class="example-card">
+                    <div class="row">
+                        <mat-card class="layout conditionMonitoring">
+                            <mat-card-content>
+
+                                <div id="UserHeader">
+                                    <h2 class="HeadName">
+                                        {{_routedUserDetail.Name}}</h2>
+                                </div>
+                            </mat-card-content>
+                        </mat-card>
+                    </div>
+
+                    <div class="row">
+                        <!-- <div class="col-md-12"> -->
+                        <mat-card class=" col-md-8 layout" id="ConditionStatus">
+                            <mat-card-content>
+                                <div id="UserContent">
+                                    <h2 class="ContentName">{{Title}} status
+                                        <div id="UserSearch" class="search Searchboxalign" *ngIf="LoggedInUser.RoleId === 1 ">
+                                            <input id="txt_InstanceDBG" [(ngModel)]="txt_instDBGID" type="text" class="searchTerm searchfont searchbox"
+                                                placeholder="Insert instance number to add access to the new instance"  appInputRestriction="noSpecialChars" >
+                                            <button class="AddDBGIcon" igxButton igxRipple (click)="AddInstDBGuid()">
+                                                <span class="icon-AddDevice"></span>
+                                            </button>
+                                        </div>
+                                    </h2>
+                                </div>
+
+                                <igx-grid #grid_UserAccessdetails [emptyGridTemplate]="noData" id="grid_UserAccessdetails"
+                                    [data]="_UserAccessDispSearch" [paging]="true" [perPage]="5" height="100%"
+                                    [paginationTemplate]="pager" width="100%" [displayDensity]="'compact'">
+
+                                    <igx-column class="columnHeader" field="InstanceDBGUID" sortable="true" header="INSTANCE NUMBER"
+                                        width="70%">
+                                        <ng-template igxCell let-cell="cell">
+                                            <div id="UserDbguid" class="cell__inner ellipsis" title="{{ cell.value }}">
+                                                {{ cell.value }}
+                                            </div>
+                                        </ng-template>
+                                    </igx-column>
+                                    <igx-column id="Userdelete"  class="columnHeader" header="ACTION" width="30%" *ngIf="LoggedInUser.RoleId === 1 ">
+                                        <ng-template igxCell let-cell="cell">
+                                            <button class=".igx-grid-cell-button link" igxButton igxRipple (click)="deleteUserRow(cell.cellID)">
+
+                                                <span class="icon-RemoveDevice" style = "margin-left:-19px;margin-top:-2px;"></span> &nbsp; REMOVE ACCESS
+                                            </button>
+                                        </ng-template>
+                                    </igx-column>
+                                </igx-grid>
+                                <ng-template #noData>
+                                    <span class="noData">
+                                        No Data Found!
+                                    </span>
+                                </ng-template>
+                                <ng-template #pager let-grid>
+                                    <div *ngIf="grid.paging && grid.totalPages > 0" class="igx-paginator">
+                                        <button [disabled]="grid.isFirstPage" (click)="grid.paginate(0)" igxButton="icon"
+                                            igxRipple igxRippleCentered="false">
+                                            <igx-icon>first_page</igx-icon>
+                                        </button>
+                                        <button [disabled]="grid.isFirstPage" (click)="grid.previousPage()" igxButton="icon"
+                                            igxRipple igxRippleCentered="false">
+                                            <igx-icon>chevron_left</igx-icon>
+                                        </button>
+                                        <span class="pages">{{ grid.page+1}} of {{ grid.totalPages }}</span>
+                                        <button [disabled]="grid.isLastPage" (click)="grid.nextPage()" igxRipple
+                                            igxRippleCentered="false" igxButton="icon">
+                                            <igx-icon>chevron_right</igx-icon>
+                                        </button>
+                                        <button [disabled]="grid.isLastPage" (click)="grid.paginate(grid.totalPages - 1)"
+                                            igxButton="icon" igxRipple igxRippleCentered="false">
+                                            <igx-icon>last_page</igx-icon>
+                                        </button>
+                                    </div>
+                                </ng-template>
+                            </mat-card-content>
+                        </mat-card>
+                        <mat-card class="col-md-3 layout" id="BasicInfo">
+                            <mat-card-content>
+                                <h2 id="headerText" class="ContentName">{{ headerText }} </h2>
+                                <div>
+                                    <div id="basicInfo_section" #basicInfo_section class="formContent" *ngIf=(!showhide_password)>
+                                        <form name="ngForm">
+
+                                            <div class="form-group">
+                                                <label for="email" class="tagContent">E-MAIL</label><br>
+                                                <label id= "UserEmail" class="formgrpValue"> {{ _routedUserDetail.Email }}</label>
+                                            </div>
+                                            <div id="UserType" class="form-group">
+                                                <label for="email" class="tagContent">USER TYPE</label><br>
+                                                <label id="UDSuperUser" class="formgrpValue" *ngIf="_routedUserDetail.RoleName == 'Super User';else elseContent">
+                                                    Super User</label>
+                                                <ng-template #elseContent class="formgrpValue" title="Operator">
+                                                    <!-- <label class="formgrpValue">Operator</label> --> <span id="UDOperator" style="color:#6c757d"> Operator </span>
+                                                </ng-template>
+                                            </div>
+
+                                     
+                                        </form>
+                                    </div>
+                                    <div class="formContent" *ngIf=(showhide_password)>
+                                        <form  [formGroup]="updatePasswordForm" (ngSubmit)="onSubmit()">
+                                            <div class="form-group">
+                                                <label>
+                                                    <span class="icon-password"></span> Password</label>
+                                                <input type="password" formControlName="Password" class="form-control formControlUse"
+                                                    [ngClass]="{ 'is-invalid': submitted && f.Password.errors && f.Password.touched }"
+                                                    placeholder="Enter password">
+                                                <div *ngIf="submitted && f.Password.errors && f.Password.touched" class="invalid-feedback">
+                                                    <div *ngIf="f.Password.errors.required">Password is required</div>
+                                                    <div *ngIf="f.Password.errors.minlength">Password must be at least
+                                                        8 characters
+                                                    </div>
+                                                    <div *ngIf="f.Password.errors.pattern">At least one upper case
+                                                        english letter
+                                                        <br /> At least one lower case english letter
+                                                        <br /> At least one digit
+                                                        <br /> At least one special character is required</div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="password" formControlName="passwordConfirm" class="form-control formControlUse"
+                                                    [ngClass]="{ 'is-invalid': submitted && f.passwordConfirm.errors && f.passwordConfirm.touched}"
+                                                    placeholder="Re-enter password">
+                                                <div *ngIf="submitted && f.passwordConfirm.errors && f.passwordConfirm.touched"
+                                                    class="invalid-feedback">
+                                                    <div *ngIf="f.passwordConfirm.errors.minlength">Password must be at
+                                                        least 8 characters
+                                                    </div>
+                                                    <div *ngIf="f.passwordConfirm.errors?.notEquivalent">Password not
+                                                        matching.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                         
+                                        </form>
+                                    </div>
+                                </div>
+
+
+                            </mat-card-content>
+                        </mat-card>
+                    <!-- </div> -->
+                    </div>
+
+                </mat-card>
+            </div>
+        </div>
+
+    </div>
+    <igx-dialog class="cancel" #dialogConfirm title="Delete Instance" [rightButtonLabel]="'OK'" [leftButtonLabel]="'Cancel'"
+        (onLeftButtonSelect)="dialogConfirm.close()" (onRightButtonSelect)="deleteRow()">
+        <div class="dialogNewRecord">
+            Clicking OK will delete data, do you want to proceed?
+        </div>
+    </igx-dialog>

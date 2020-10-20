@@ -1,0 +1,70 @@
+<ng4-loading-spinner [timeout]="30000" [threshold]="1000"></ng4-loading-spinner>
+<div class="content-wrap" igxLayout>
+        <!-- <main> -->
+                <!-- <button (click)="drawer.toggle()"> Menu </button> -->
+                
+                <span  igxToggleAction="navigation"  [closeOnOutsideClick]="true">
+                  <!-- <igx-icon fontSet="material">menu</igx-icon> -->
+                    <span class="Navmenu">
+                        <img class="menu" src="./assets/images/menu.png">
+                    </span> 
+                </span>
+              <!-- </main> -->
+        
+    <igx-nav-drawer id="navigation" [pin]="true" [pinThreshold]="0">
+        <ng-template igxDrawer>
+            
+            <span igxDrawerItem igxRipple>
+                <img src="./assets/images/home.png" class="link Homelink"[routerLink]="['/home']">
+                <span id="HP" class="label link linkone" [routerLink]="['/home']">HOME</span>
+            </span>
+
+            <span igxDrawerItem igxRipple *ngIf="loggedinUser.RoleId === 1">
+                <img src="./assets/images/Data-dump_icon.png" class="link Homelink"[routerLink]="['/ExportData']">
+                <span id="csv" class="label link" [routerLink]="['/ExportData']">EXPORT DATA </span>
+            </span>
+            <span igxDrawerItem igxRipple  *ngIf="loggedinUser.RoleId === 1">
+               
+                <img src="./assets/images/verification.png"  class="link" [routerLink]="['/scheduler']">
+                <span id="VS" class="label link" [routerLink]="['/scheduler']">SCHEDULER</span>
+            </span>
+            <span igxDrawerItem igxRipple>
+                <img src="./assets/images/userdetails.png"  class="link" (click)="showAccessDetails(loggedinUser)">
+                <!-- <img src="./assets/images/userdetails.png"  class="link" [routerLink]="['/UserAccessDetails']"> -->
+                <!-- <span class="label link" [routerLink]="['/UserAccessDetails']">USER DETAILS</span> -->
+                <span id="UD" class="label link" (click)="showAccessDetails(loggedinUser)">USER DETAILS</span> 
+            </span>
+            <span igxDrawerItem igxRipple *ngIf="loggedinUser.RoleId === 1">
+              
+                <img src="./assets/images/uam.png"  class="link" [routerLink]="['/UserManagement']">
+                <span id="UM" class="label link" [routerLink]="['/UserManagement']">USER MANAGEMENT</span>
+            </span>
+            <!-- <span igxDrawerItem igxRipple  *ngIf="loggedinUser.RoleId === 1">
+               
+                <img src="./assets/images/uam.png"  class="link" [routerLink]="['/Linechart']">
+            </span> -->
+        </ng-template>
+        <ng-template igxDrawerMini>
+            <span igxDrawerItem igxRipple>
+                <img src="./assets/images/home.png" id="HomeIcon" class="link" [routerLink]="['/home']">
+            </span>
+
+            <span igxDrawerItem igxRipple *ngIf="loggedinUser.RoleId === 1">
+                <img src="./assets/images/Data-dump_icon.png" id="Data-dump_icon"  class="link data-dump-icon" [routerLink]="['/ExportData']">
+            </span>
+            <span igxDrawerItem igxRipple *ngIf="loggedinUser.RoleId === 1">
+               
+                <img src="./assets/images/verification.png"  id="VSIcon" class="link" [routerLink]="['/scheduler']">
+            </span>
+            <span igxDrawerItem igxRipple>
+                <img src="./assets/images/userdetails.png"  id="UDIcon" class="link" (click)="showAccessDetails(loggedinUser)">
+                
+            </span>
+            <span igxDrawerItem igxRipple  *ngIf="loggedinUser.RoleId === 1">
+               
+                <img src="./assets/images/uam.png"  id="UMIcon" class="link" [routerLink]="['/UserManagement']">
+            </span> 
+            
+        </ng-template>
+    </igx-nav-drawer>
+</div>

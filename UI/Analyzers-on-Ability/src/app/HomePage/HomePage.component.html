@@ -1,0 +1,95 @@
+<ng4-loading-spinner [timeout]="30000" [threshold]="1000"></ng4-loading-spinner>
+
+<div class="container-fluid">
+	<div>
+		<MenuBar></MenuBar>
+
+	</div>
+	<div class="row">	
+
+		<!-- <div class="col-md-12"> -->
+		<div>
+			<NavdrawerComponent></NavdrawerComponent>
+		</div>	
+		<div class="col-md-11 design">
+
+			<div class="Card">
+				<mat-card class="example-card">
+					<div class="row">
+						<mat-card class="layout conditionMonitoring">
+							<mat-card-content>
+								<div class="row">
+									<div id="ConditionHeadname" class="col-md-8 HeadName">ABB Ability<sup>TM</sup><br> {{title}}
+										reports</div>
+									<div id="LCMO" class="col-md-4">
+										<div class="col-md-12">
+											Latest {{title}} overview
+										</div>
+										<!-- <app-doughnut-chart-new></app-doughnut-chart-new> -->
+
+										<DoughnutChartDemoComponent></DoughnutChartDemoComponent>
+									</div>
+								</div>
+							</mat-card-content>
+						</mat-card>
+					</div>
+					<div class="row carousel">
+						<CarouselComponent></CarouselComponent>
+					</div>
+
+
+					<div class=" row">
+						<mat-card class="layout " id="reportList">
+							<mat-card-content>
+
+								<div>
+									<GridComponent></GridComponent>
+									<ng-template #pager let-grid>
+										<div *ngIf="grid.paging && grid.totalPages > 0" class="igx-paginator">
+											<button class="navigation" [disabled]="grid.isFirstPage"
+												(click)="grid.paginate(0)" igxButton="icon" igxRipple
+												igxRippleCentered="false">
+												<igx-icon>first_page</igx-icon>
+											</button>
+											<button class="navigation" [disabled]="grid.isFirstPage"
+												(click)="grid.previousPage()" igxButton="icon" igxRipple
+												igxRippleCentered="false">
+												<igx-icon>chevron_left</igx-icon>
+											</button>
+											<span>{{ grid.page}} of {{ grid.totalPages }}</span>
+											<button class="navigation" [disabled]="grid.isLastPage"
+												(click)="grid.nextPage()" igxRipple igxRippleCentered="false"
+												igxButton="icon">
+												<igx-icon>chevron_right</igx-icon>
+											</button>
+											<button class="navigation" [disabled]="grid.isLastPage"
+												(click)="grid.paginate(grid.totalPages - 1)" igxButton="icon" igxRipple
+												igxRippleCentered="false">
+												<igx-icon>last_page</igx-icon>
+											</button>
+										</div>
+									</ng-template>
+								</div>
+							</mat-card-content>
+						</mat-card>
+					</div>
+				</mat-card>
+			</div>
+			<!-- </div> -->
+		</div>
+
+	
+	</div>
+
+
+	<!-- <div *ngIf="leftdays < 16" (click)="dialog.open()"> -->
+	<igx-dialog #dialogConfirm title="Password Expiry" [rightButtonLabel]="'OK'" class="dialogNewRecord" [leftButtonLabel]="'Cancel'" (onLeftButtonSelect)="dialogConfirm.close()" (onRightButtonSelect)="onDialogOKSelected($event)">
+		<!-- <div name="totalleftdays" ngDefaultControl class="dialogNewRecord" [(ngModel)]="totalleftdays"> -->
+				<div  ngDefaultControl class="dialogNewRecord" [(ngModel)]="totalleftdays">
+			<!-- Password Expires in<span>{{totalleftdays}} </span> days -->
+		</div>
+	</igx-dialog>
+
+	<!-- </div> -->
+
+</div>

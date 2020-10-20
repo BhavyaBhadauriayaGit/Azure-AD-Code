@@ -1,0 +1,15 @@
+C:\Users\Administrator\Documents\Bhavya\08Oct2020UAM\Main\Main\UAM.DL\bin\Debug\UAM.DL.exe.config
+C:\Users\Administrator\Documents\Bhavya\08Oct2020UAM\Main\Main\UAM.DL\bin\Debug\UAM.DL.exe
+C:\Users\Administrator\Documents\Bhavya\08Oct2020UAM\Main\Main\UAM.DL\bin\Debug\UAM.DL.pdb
+C:\Users\Administrator\Documents\Bhavya\08Oct2020UAM\Main\Main\UAM.DL\bin\Debug\System.Data.SQLite.dll
+C:\Users\Administrator\Documents\Bhavya\08Oct2020UAM\Main\Main\UAM.DL\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\Administrator\Documents\Bhavya\08Oct2020UAM\Main\Main\UAM.DL\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\Administrator\Documents\Bhavya\08Oct2020UAM\Main\Main\UAM.DL\bin\Debug\UAM.BO.dll
+C:\Users\Administrator\Documents\Bhavya\08Oct2020UAM\Main\Main\UAM.DL\bin\Debug\UAM.BO.pdb
+C:\Users\Administrator\Documents\Bhavya\08Oct2020UAM\Main\Main\UAM.DL\bin\Debug\System.Data.SQLite.xml
+C:\Users\Administrator\Documents\Bhavya\08Oct2020UAM\Main\Main\UAM.DL\bin\Debug\System.Data.SQLite.dll.config
+C:\Users\Administrator\Documents\Bhavya\08Oct2020UAM\Main\Main\UAM.DL\obj\Debug\UAM.DL.csprojAssemblyReference.cache
+C:\Users\Administrator\Documents\Bhavya\08Oct2020UAM\Main\Main\UAM.DL\obj\Debug\UAM.DL.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Documents\Bhavya\08Oct2020UAM\Main\Main\UAM.DL\obj\Debug\UAM.DL.csproj.CopyComplete
+C:\Users\Administrator\Documents\Bhavya\08Oct2020UAM\Main\Main\UAM.DL\obj\Debug\UAM.DL.exe
+C:\Users\Administrator\Documents\Bhavya\08Oct2020UAM\Main\Main\UAM.DL\obj\Debug\UAM.DL.pdb

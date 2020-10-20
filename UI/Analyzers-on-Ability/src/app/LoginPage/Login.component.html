@@ -1,0 +1,92 @@
+<ng4-loading-spinner [timeout]="30000" [threshold]="1000"></ng4-loading-spinner>
+<div class="container">
+
+    <div class="menu">
+        <!-- <MenuBar></MenuBar> -->
+        <LoginMenuBarComponent></LoginMenuBarComponent>
+    </div>
+
+    <div class="row ">
+
+        <!-- <div class="col-md-1"></div> -->
+        <div class="col-md-12">
+            <div>
+                <img src="./assets/images/login.jpg">
+            </div>
+
+            <div class=" loginPage">
+
+
+                <div class="loginDetails">
+                    
+                    <div class="login">
+                        <div class="benchmark">_</div>
+                        <div class="header">Welcome to ABB Ability<sup>TM</sup></div>
+                        <div class="header"> {{title}} for measurement devices </div>
+                        <div class="space"></div>
+                        <div class="error">
+                            {{ errorMessage }}
+                        </div>
+
+
+                        <form [formGroup]="registerForm" class="text" (ngSubmit)="onSubmit()">
+                            <div class="form-group">
+                                <label class="labelName"><span class="icon-email"></span> E-MAIL</label>
+                                <input type="text" formControlName="Email" class="form-control inputbox" [ngClass]="{ 'is-invalid': submitted && f.Email.errors && f.Email.touched }"
+                                       placeholder="Enter E-mail" />
+                                <div *ngIf="submitted && f.Email.errors && f.Email.touched" class="invalid-feedback">
+                                    <div *ngIf="f.Email.errors.required">E-mail is required</div>
+                                    <div *ngIf="f.Email.errors.email">E-mail must be a valid E-mail address</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="labelName"><span class="icon-password"></span> PASSWORD</label>
+                                <input type="password" formControlName="Password" class="form-control inputbox"
+                                       [ngClass]="{ 'is-invalid': submitted && f.Password.errors && f.Password.touched }"
+                                       placeholder="Enter password" />
+                                <div *ngIf="submitted && f.Password.errors && f.Password.touched" class="invalid-feedback">
+                                    <div *ngIf="f.Password.errors.required">Password is required</div>
+                                    <div *ngIf="f.Password.errors.minlength">
+                                        Password must be at least 8
+                                        characters
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button   class="loginbtn btn btn-primary" #btn_User_addupdate > {{ btnLabelUpdate }}</button>
+                                <!-- <button igxButton="raised" igxRipple="white" (click)="dialog.open()">Show Dialog</button> -->
+                               
+                            </div>
+
+                            
+                        </form>
+
+                    </div>
+                </div>
+                
+                <!-- <div>
+                    <footer>
+                        <p class="version">1.0.0.40</p>
+                    </footer>
+                </div> -->
+            </div>
+        </div>
+
+        
+
+
+    </div>
+
+
+    
+   
+</div>
+
+
+
+
+
+
+    
+

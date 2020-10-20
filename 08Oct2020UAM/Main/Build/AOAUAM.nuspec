@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>AOAUAM</id>
+    <version>1.0.0.10</version>
+    <authors>Anup C</authors>
+    <owners>ABB IAMA</owners>
+    <description>Package for AOAUAM source code</description>
+    <releaseNotes>Initial release of the package.</releaseNotes>
+    <copyright>Copyright 2019</copyright>
+    <tags>AOAUAM</tags>
+  </metadata>
+  <files>
+        <!-- include every file requred to publish -->
+        <file src="..\UAM\obj\Release\Package\PackageTmp\**" />
+  </files>
+</package>

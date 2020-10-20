@@ -1,0 +1,644 @@
+/*Adding grid css common in every pages */
+.igx-grid__tbody-message{
+  color:white !important;
+}
+
+.igx-nav-drawer__aside, .igx-nav-drawer__aside--pinned, .igx-nav-drawer__aside--mini{
+  margin-top:12px;
+}
+
+
+/* Added for design of the dialog box when deleting the user */
+.igx-dialog, .igx-dialog__window {
+  /* width:auto;
+  border:1px solid #373734;
+  background-color: #262626 !important; */
+  min-width:28.5rem !important;
+  /* width:140px; */
+  border:1px solid #373734;
+  background-color: #262626 !important;
+}
+
+.igx-dialog__window-title {
+  background-color: #262626 !important;
+  color: #ffffff !important;
+  /* background: url('./assets/images/Delete.png'); */
+}
+
+.igx-dialog__window-actions  .igx-button--flat {
+  margin:10px;
+    background-color: #dddddd ;
+    border-color: #dddddd ;
+    font-size: 12px;
+    color: #464646 !important;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 0px;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+body {
+  background-color: white;
+  color:blue
+}
+.toolbar-spacer {
+  flex: 1 1 auto;
+  color: blue;
+  background-color:powderblue;
+}
+a.title {
+  color: blue;
+}
+
+  ul.igx-carousel__indicators {
+    visibility: visible;
+  }
+
+
+/* .igx-carousel__indicators li.active {
+  background:yellow;
+} */
+
+/* .igx-grid__tbody span {
+color: white !important;
+} */
+
+.igx-dialog__window-actions  button ~ button {
+  font-size: 12px;
+  color: #fff !important;
+  background-color: #007bff !important;
+  border-color: #007bff !important;
+}
+
+.igx-dialog__window-actions  {
+  background-color: #262626 !important;
+  color: #ffffff !important;
+}
+.igx-dialog__window-content
+{color:white !important;
+}
+
+/* @import url('https://fonts.googleapis.com/icon?family=Material+Icons'); */
+body {
+background:#141414;
+font-family: ABBvoice;
+padding:0px;
+overflow-x:hidden !important;
+}
+
+/* based on angular-toastr css https://github.com/Foxandxss/angular-toastr/blob/cb508fe6801d6b288d3afc525bb40fee1b101650/dist/angular-toastr.css */
+
+/* position */
+.toast-center-center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .toast-top-center {
+    top: 0;
+    right: 0;
+    width: 100%;
+  }
+  .toast-bottom-center {
+    bottom: 0;
+    right: 0;
+    width: 100%;
+  }
+  .toast-top-full-width {
+    top: 0;
+    right: 0;
+    width: 100%;
+  }
+  .toast-bottom-full-width {
+    bottom: 0;
+    right: 0;
+    width: 100%;
+  }
+  .toast-top-left {
+    top: 12px;
+    left: 12px;
+  }
+  .toast-top-right {
+    top: 12px;
+    right: 12px;
+  }
+  .toast-bottom-right {
+    right: 12px;
+    bottom: 12px;
+  }
+  .toast-bottom-left {
+    bottom: 12px;
+    left: 12px;
+  }
+  
+  /* toast styles */
+  .toast-title {
+    font-weight: bold;
+  }
+  .toast-message {
+    word-wrap: break-word;
+  }
+  .toast-message a,
+  .toast-message label {
+    color: #FFFFFF;
+  }
+  .toast-message a:hover {
+    color: #CCCCCC;
+    text-decoration: none;
+  }
+  .toast-close-button {
+    position: relative;
+    right: -0.3em;
+    top: -0.3em;
+    float: right;
+    font-size: 20px;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-shadow: 0 1px 0 #ffffff;
+    /* opacity: 0.8; */
+  }
+  .toast-close-button:hover,
+  .toast-close-button:focus {
+    color: #000000;
+    text-decoration: none;
+    cursor: pointer;
+    opacity: 0.4;
+  }
+  /*Additional properties for button version
+   iOS requires the button element instead of an anchor tag.
+   If you want the anchor version, it requires `href="#"`.*/
+  button.toast-close-button {
+    padding: 0;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+  }
+  .toast-container {
+    pointer-events: none;
+    position: fixed;
+    z-index: 999999;
+  }
+  .toast-container * {
+    box-sizing: border-box;
+  }
+  .toast-container .toast {
+    position: relative;
+    overflow: hidden;
+    margin: 0 0 6px;
+    padding: 15px 15px 15px 50px;
+    width: 300px;
+    border-radius: 3px 3px 3px 3px;
+    background-position: 15px center;
+    background-repeat: no-repeat;
+    background-size: 24px;
+    box-shadow: 0 0 12px #999999;
+    color: #FFFFFF;
+  }
+  .toast-container .toast:hover {
+    box-shadow: 0 0 12px #000000;
+    opacity: 1;
+    cursor: pointer;
+  }
+  .igx-icon{
+    outline-color: transparent !important;
+  }
+  /* https://github.com/FortAwesome/Font-Awesome-Pro/blob/master/advanced-options/raw-svg/regular/info-circle.svg */
+  .toast-info {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' width='512' height='512'%3E%3Cpath fill='rgb(255,255,255)' d='M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z'/%3E%3C/svg%3E");
+  }
+  /* https://github.com/FortAwesome/Font-Awesome-Pro/blob/master/advanced-options/raw-svg/regular/times-circle.svg */
+  .toast-error {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' width='512' height='512'%3E%3Cpath fill='rgb(255,255,255)' d='M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z'/%3E%3C/svg%3E");
+  }
+  /* https://github.com/FortAwesome/Font-Awesome-Pro/blob/master/advanced-options/raw-svg/regular/check.svg */
+  .toast-success {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' width='512' height='512'%3E%3Cpath fill='rgb(255,255,255)' d='M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z'/%3E%3C/svg%3E");
+  }
+  /* https://github.com/FortAwesome/Font-Awesome-Pro/blob/master/advanced-options/raw-svg/regular/exclamation-triangle.svg */
+  .toast-warning {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 576 512' width='576' height='512'%3E%3Cpath fill='rgb(255,255,255)' d='M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z'/%3E%3C/svg%3E");
+  }
+  .toast-container.toast-top-center .toast,
+  .toast-container.toast-bottom-center .toast {
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .toast-container.toast-top-full-width .toast,
+  .toast-container.toast-bottom-full-width .toast {
+    width: 96%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .toast {
+    background-color: #030303;
+    pointer-events: auto;
+  }
+  .toast-success {
+    background-color: green;
+  }
+  .toast-error {
+    background-color: red;
+  }
+  .toast-info {
+    background-color: blue;
+  }
+  .toast-warning {
+    background-color: orange;
+  }
+  .toast-progress {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 4px;
+    background-color: #000000;
+    opacity: 0.4;
+  }
+  /* Responsive Design */
+  @media all and (max-width: 240px) {
+    .toast-container .toast.div {
+      padding: 8px 8px 8px 50px;
+      width: 11em;
+    }
+    .toast-container .toast-close-button {
+      right: -0.2em;
+      top: -0.2em;
+    }
+  }
+  @media all and (min-width: 241px) and (max-width: 480px) {
+    .toast-container .toast.div {
+      padding: 8px 8px 8px 50px;
+      width: 18em;
+    }
+    .toast-container .toast-close-button {
+      right: -0.2em;
+      top: -0.2em;
+    }
+  }
+  @media all and (min-width: 481px) and (max-width: 768px) {
+    .toast-container .toast.div {
+      padding: 15px 15px 15px 50px;
+      width: 25em;
+    }
+  }
+  .igx-grid__th--sorted .igx-grid__th-title:hover{
+    cursor: pointer !important;}
+    
+    .igx-grid__th-icons .sort-icon {
+      color:white !important;
+      cursor:pointer;
+    }
+
+    #grid1_Date_Stamp >.igx-grid__th-title {
+      /* background: red; */
+      cursor: pointer !important;
+    }
+
+    #grid1_Time > .igx-grid__th-title{
+      cursor: pointer !important;
+    }
+
+
+
+.igx-calendar-picker__prev, .igx-calendar-picker__next, .igx-calendar-picker__date {
+  color: white !important;
+}
+
+
+
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video,input,select,.igx-grid-paginator .igx-button--icon:focus,button:focus{
+  outline:transparent;
+}
+.form-control:focus{
+  border-color:none !important;
+  outline: none !important;
+}
+*/
+/* material table  styles */
+
+.mat-checkbox-checked.mat-accent .mat-checkbox-background {
+  background-color: black !important;
+}
+
+.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background{
+  background-color: black !important;
+}
+ th.mat-header-cell:first-of-type{
+  vertical-align: middle !important;
+} 
+
+tr.mat-header-row {
+  height: 40px !important;
+  vertical-align: middle !important;
+  
+}
+
+th.mat-header-cell.cdk-column-select.mat-column-select.ng-star-inserted{
+  border-bottom: 1px solid grey !important;
+}
+mat-checkbox#mat-checkbox-1 {
+  display: none !important;
+}
+
+.mat-checkbox-mixedmark {
+  background-color:blue !important;
+}
+
+thead >.mat-header-row> th {
+  border-bottom: 1px solid grey !important;
+  vertical-align: bottom !important;
+    padding-bottom: 4px !important;
+}
+.mat-checkbox-layout{
+background: black !important;
+border:0px solid gray !important;
+}
+
+table {
+  width: 100% !important;
+  background:#262626 !important;
+}
+.mat-cell, .mat-footer-cell {
+  color: #d8d6d6 !important;
+}
+
+.mat-header-cell {
+    color: white !important;
+}
+
+.mat-icon-button{
+  width: 36px !important;
+  height:36px !important;
+}
+
+button.mat-paginator-navigation-next.mat-icon-button:hover,
+button.mat-paginator-navigation-previous.mat-icon-button:hover,
+button.mat-paginator-navigation-last.mat-icon-button:hover,
+button.mat-paginator-navigation-first.mat-icon-button:hover
+{
+  background:#1514149e !important;
+  height: 36px !important;
+  width: 36px !important;
+  z-index: 1 !important;
+}
+.mat-form-field-infix{
+  width: 160px !important;
+}
+svg.mat-paginator-icon:hover {
+  color: #d8d6d6 !important;
+}
+.mat-checkbox-inner-container {
+  height: 22px !important;
+  width:22px !important;
+  border:1px solid #d8d6d6 !important;
+}
+
+.mat-checkbox-input {
+  display: none !important;
+}
+
+.mat-checkbox-ripple {
+  display: none !important;
+}
+
+.mat-table{
+  background: #262626 !important;
+}
+
+.mat-header-cell{
+  color: white !important;
+}
+
+
+.mat-checkbox-layout {
+  cursor: inherit;
+  align-items: flex-start;
+  vertical-align: bottom;
+  display: table-caption !important;
+  white-space: nowrap;
+}
+td.mat-cell:first-child{
+  padding-left:0px !important;
+  padding-right: 0px !important;
+}
+
+th.mat-header-cell:last-child {
+  padding-right:0px !important;
+}
+td.mat-cell:last-child{
+  padding-right: 0px !important;
+}
+
+.table-grid > thead{
+  border-bottom:1px solid grey !important;
+}
+
+.table-grid td{
+  vertical-align: middle !important;
+}
+
+td.mat-cell{
+  border-bottom:0.5px solid grey !important;
+}
+.mat-checkbox-frame{
+  border-width: 1px !important;
+  border-radius: 0px !important;
+}
+
+.mat-paginator-range-label {
+  margin: 2px 32px 0 24px !important;
+ position: relative;
+    left: 50%;
+  color: white !important;
+}
+
+button.mat-paginator-navigation-previous.mat-icon-button {
+  margin: 0px 80px 0px 0px !important;
+}
+.mat-paginator-container {
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.mat-paginator{
+  background: #262626 !important;
+}
+
+.mat-icon-button{
+  background: none !important;
+  line-height: 36px !important;
+}
+
+.mat-paginator{
+  background: #262626 !important;
+}
+
+.mat-paginator-container {
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.mat-paginator-range-label {
+  margin: 2px 32px 0 24px !important;
+ position: relative;
+    left: 50%;
+  color: white !important;
+}
+
+button.mat-paginator-navigation-previous.mat-icon-button {
+  margin: 0px 80px 0px 0px !important;
+}
+
+.mat-paginator-page-size{
+  display: none !important;
+  }
+
+  .mat-paginator-range-actions{
+    margin-right:0px !important;
+    padding-right: 92px !important;
+    align-items: center !important;
+  } 
+  .mat-icon-button[disabled]{
+    pointer-events: none !important;
+    color:#1f1c1c !important;
+    background: none !important;
+  }
+
+  .mat-icon-button[enabled]{
+  
+    color:#d8d6d6 !important;
+
+  }
+
+  svg.mat-paginator-icon:hover {
+    transition: color 1ms ease-in-out, background-color 1ms ease-in-out, border-color 1ms ease-in-out, box-shadow 1ms ease-in-out !important;
+    color: #d8d6d6 !important;
+    background: rgba(0, 0, 0, 0.04) !important;
+}
+
+svg.mat-paginator-icon:focus {
+  color: white !important;
+}
+
+  .mat-icon-button{
+   background: none !important;
+    line-height: 36px !important;
+  }
+
+  button.mat-paginator-navigation-next.mat-icon-button,
+button.mat-paginator-navigation-previous.mat-icon-button,
+button.mat-paginator-navigation-last.mat-icon-button,
+button.mat-paginator-navigation-first.mat-icon-button{
+  outline:0px !important;
+}
+
+button.mat-paginator-navigation-next.mat-icon-button:hover,
+button.mat-paginator-navigation-previous.mat-icon-button:hover,
+button.mat-paginator-navigation-last.mat-icon-button:hover,
+button.mat-paginator-navigation-first.mat-icon-button:hover
+{
+  background:#1514149e !important;
+  height: 36px !important;
+  width: 36px !important;
+  z-index: 1 !important;
+}
+/* endmat-pagination */
+
+/*
+
+button.mat-paginator-navigation-previous.mat-icon-button {
+  margin: 0px 80px 0px 0px !important;
+}
+.mat-paginator-container {
+  display: flex !important;
+  justify-content: center !important;
+}
+
+
+
+
+
+.mat-icon-button{
+  background: none !important;
+  line-height: 36px !important;
+}
+
+.mat-paginator-range-label {
+  margin: 2px 32px 0 24px !important;
+ position: relative;
+    left: 50%;
+  color: white !important;
+}
+
+.mat-paginator-icon{
+  color: white !important;
+  width:24px !important;
+}
+
+.mat-paginator{
+  background: #262626 !important;
+}
+
+.mat-paginator-page-size{
+display: none !important;
+}
+
+.mat-paginator-range-actions{
+  margin-right:0px !important;
+  padding-right: 92px !important;
+  align-items: center !important;
+}
+
+button.mat-paginator-navigation-next.mat-icon-button,
+button.mat-paginator-navigation-previous.mat-icon-button,
+button.mat-paginator-navigation-last.mat-icon-button,
+button.mat-paginator-navigation-first.mat-icon-button{
+  outline:0px !important;
+}
+
+*/
+
+
+.mat-checkbox-checkmark-path{
+  stroke: #007bff !important;
+  stroke-width: 3.86667px !important;
+}
+
+.mat-tooltip{
+  display: none !important;
+}
+
+
+button.mat-paginator-navigation-previous.mat-icon-button:enabled,
+button.mat-paginator-navigation-next.mat-icon-button:enabled,
+button.mat-paginator-navigation-last.mat-icon-button:enabled,
+button.mat-paginator-navigation-first.mat-icon-button:enabled
+{
+  color:white !important;
+  cursor: pointer !important;
+}
+
+
+input.Diaologtime {
+  background-image: url("/assets/images/clock2.png") !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-position-x: 96px !important;
+  background-position-y: 10px !important;
+  opacity: 1.5;
+  background-size: 18px !important;
+}
+
+
+

@@ -1,0 +1,39 @@
+
+
+ @import '~igniteui-angular/lib/core/styles/themes/utilities';
+
+
+ @import '~igniteui-angular/lib/core/styles/components/calendar/calendar-component';
+ @import '~igniteui-angular/lib/core/styles/components/calendar/calendar-theme';
+ 
+ 
+ $primary-color: white;
+ $secondary-color: black;
+ 
+ $white-theme-palette:igx-palette($primary: $primary-color, $secondary:$secondary-color);
+ 
+
+ $white-calendar-theme: igx-calendar-theme( 
+  $palette: $white-theme-palette,
+  $content-background:igx-color($white-theme-palette,'secondary', 400),
+  $date-selected-background: igx-color($white-theme-palette,'primary', 100),
+  $weekend-text-color: igx-color($white-theme-palette,'primary', 100),
+  $month-current-text-color:igx-color($white-theme-palette,'primary', 100),
+  $year-current-text-color:igx-color($white-theme-palette,'primary', 100),
+  $picker-arrow-color:igx-color($white-theme-palette,'primary', 100),
+  $inactive-text-color:igx-color($white-theme-palette,'secondary', 100),
+  $header-background:igx-color($white-theme-palette,'secondary', 200)
+  );
+ 
+ :host {
+   display: block;
+   width: 100%;
+   height: 100%;
+   transition: background .15s ease;
+   &.white-color-attr{
+      ::ng-deep {
+         @include igx-calendar($white-calendar-theme);
+      }
+   }
+ }
+   

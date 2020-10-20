@@ -1,0 +1,6 @@
+C:\Users\Administrator\Documents\Bhavya\08Oct2020UAM\Main\Main\UAM.BO\bin\Debug\UAM.BO.dll
+C:\Users\Administrator\Documents\Bhavya\08Oct2020UAM\Main\Main\UAM.BO\bin\Debug\UAM.BO.pdb
+C:\Users\Administrator\Documents\Bhavya\08Oct2020UAM\Main\Main\UAM.BO\obj\Debug\UAM.BO.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Documents\Bhavya\08Oct2020UAM\Main\Main\UAM.BO\obj\Debug\UAM.BO.dll
+C:\Users\Administrator\Documents\Bhavya\08Oct2020UAM\Main\Main\UAM.BO\obj\Debug\UAM.BO.pdb
+C:\Users\Administrator\Documents\Bhavya\08Oct2020UAM\Main\Main\UAM.BO\obj\Debug\UAM.BO.csprojAssemblyReference.cache

@@ -1,0 +1,184 @@
+
+a{
+    color:white;
+    font-weight: 20px;
+}
+
+.Date{
+    color:#D2D2D2;
+}
+.igx-display-container {
+    width: 100%;
+    background:#262626;
+    color:white;
+}
+
+.igx-grid__tbody{
+    background:#262626;
+}
+.igx-grid__th-title{
+    color:white; 
+}
+/* span{color:white;} */
+
+.igx-paginator>* {
+    outline-color: transparent !important;
+    background-color:#262626;
+    color:white;
+    margin: 0 .3125rem;
+    vertical-align: middle !important;
+    align-items: center;
+}
+.igx-grid-paginator .igx-button--icon:focus 
+{ 
+ color: white; 
+}
+.header{
+    width:100%;
+}
+.dropdown{
+    position: relative;
+    float:right;
+    color:white;
+   
+   margin-right: 20px;
+   background:black;
+
+
+}
+
+.ContentName{
+    font-family: ABBvoice;
+    font-style: Medium;
+    font-size: 20px;
+    line-height: 23px;
+    text-align: Left;
+   }
+
+   .header{
+    width:100%;
+}
+
+.failedText{
+    color:red;
+    border:1px solid red;
+     border-radius: 10px;
+     padding:2px;
+     font-size:11px;
+     line-height: 11px;
+     width: 70px;
+     height: 15px;
+     text-align: center;
+}
+
+.warningText{
+        color:orange;
+        border:1px solid orange;
+         border-radius: 10px;
+         padding:2px;
+         font-size:11px;
+         line-height: 11px;
+         width: 70px;
+         height: 15px;
+         text-align: center;
+}
+
+.fadedText{
+    color:grey;
+    border:1px solid grey;
+     border-radius: 10px;
+     padding:2px;
+     font-size:11px;
+     line-height: 11px;
+     width: 70px;
+     height: 15px;
+     text-align: center;
+}
+
+
+.successText{
+    color:green;
+    border:1px solid green;
+     border-radius: 10px;
+     padding:2px;
+     font-size:11px;
+     line-height: 11px;
+     width: 70px;
+     height: 15px;
+     text-align: center;
+}
+
+.Incomplete{
+    color:grey;
+
+}
+.Fail{
+    color:red;
+    
+}
+
+.Warn{
+    color:orange;
+}
+.Pass{
+    color:green;
+    
+}
+.columnHeader{
+    
+font-family: ABBvoice;
+font-size: 16px;
+}
+.calenderLabel{
+    margin-left:244px;
+    font-size: 20px;
+    margin-top:20px;
+}
+   
+.calendar{font-size:20px;
+    font-family:ABBVoice;
+    cursor:pointer;
+    /* margin-top:35px; */
+    background: #262626;
+    color:white;
+    float:right;
+    margin-right: 20px;
+    margin-top:20px;
+    width:90px;
+}
+
+igx-grid-paginator {
+    outline-color:transparent !important;
+    background:#262626;
+}
+
+.igx-grid__td{
+    color:#D2D2D2;
+}
+
+.igx-grid-paginator{
+    outline-color:transparent !important;
+    background-color: #262626;
+
+}
+.igx-grid__td--selected{
+    background-color: transparent !important;
+}
+.weeklycalendar{
+margin-top: -22px;
+padding-bottom:40px;
+}
+.report{
+    cursor: pointer;
+}
+.material-icons igx-icon{
+    outline-color: transparent !important;
+}
+.noData{
+    color:white;
+}
+
+.gridImage {
+    height:17px;
+    margin-bottom: -5px !important;
+}

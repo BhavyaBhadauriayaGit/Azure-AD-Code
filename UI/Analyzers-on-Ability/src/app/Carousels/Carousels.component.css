@@ -1,0 +1,246 @@
+
+.igx-carousel__inner {
+    width:99%;
+    text-align: center; 
+}
+.igx-carousel{
+    outline-color: transparent !important;
+}
+/* igx-carousel igx-icon.igx-icon{
+
+   
+    margin-left:87px;
+    margin-right: 87px;
+    margin-top: 10px;
+} */
+
+/* img{
+    margin:-5px !important;
+} */
+
+ .carouselLayout{
+    
+    background: #262626;        
+     color: white;
+ border-right:7px solid black;
+    
+}
+
+.Slider{
+  
+    float:left;
+   height:200px;
+}
+
+
+.icons{
+cursor:default;
+width:15px;
+
+}
+
+.clickable{
+    cursor: pointer;
+}
+.separator{
+    width:135px;
+}
+
+.download{
+    margin-top: 26px;
+    font-family: ABBvoice; 
+    font-size: 14px;
+   }
+
+
+   .DownloadIcon
+   {margin-bottom: -2px;}
+
+   .tableDetails{
+       padding:10px;
+   }
+.successBar{
+    margin-top:50px;
+   
+    height:7px;
+    background-color: green;
+    border: 1px solid green;
+
+}
+.fadedBar{
+    margin-top:50px;
+    
+    height:7px;
+    background-color:grey;
+    border: 1px solid grey;
+
+}
+.reddBar{
+     margin-top:50px;
+   
+    height:7px;
+    background-color: red;
+    border: 1px solid red;
+
+}
+.orangeBar{
+    margin-top:50px;
+   
+    height:7px;
+    background-color:orange;
+    border: 1px solid orange;
+
+}
+.igx-carousel__arrow--prev{
+    display:none;
+
+}
+
+.igx-carousel__arrow--next{
+    display:none;
+}
+    
+
+.igx-carousel__indicators  { 
+    margin-bottom:10px;
+} 
+
+/* 
+.igx-carousel igx-icon.igx-icon {
+   
+    margin-top: 10px;
+} */
+
+.greyText{
+    color:grey;
+    border:1px solid grey;
+     border-radius: 10px;
+     padding:2px;
+     font-size:11px;
+     line-height: 11px;
+     width: 70px;
+     height: 15px;
+     text-align: center;
+}
+.redText{
+    color:red;
+    border:1px solid red;
+     border-radius: 10px;
+     padding:2px;
+     font-size:11px;
+     line-height: 11px;
+     width: 70px;
+     height: 15px;
+     text-align: center;
+}
+.orangeText{
+    color:orange;
+    border:1px solid orange;
+     border-radius: 10px;
+     padding:2px;
+     font-size:11px;
+     line-height: 11px;
+     width: 70px;
+     height: 15px;
+     text-align: center;
+}
+.greenText{
+    color:green;
+    border:1px solid green;
+     border-radius: 10px;
+     padding:2px;
+     font-size:11px;
+     line-height: 11px;
+     width: 70px;
+     height: 15px;
+     text-align: center;
+}
+
+.text{
+    /* margin-left:-5px; */
+    margin-bottom:5px;
+    font-size:12px;
+    text-align: left;
+    
+    color:#D2D2D2;
+}
+.tag{
+    max-width:32ch;
+    word-wrap:break-word;
+    font-size:20px;
+    line-height: 23px;
+    text-align: left;
+    height:51px;
+
+    
+}
+
+
+.line{
+    width:100%;
+    margin-top:-4px;
+    background:#5A5A5A;
+    /* width:230px;
+   margin-bottom:10px;
+    color: #5A5A5A; */
+}
+.ellipsis{
+    width:180px;
+     text-overflow: ellipsis;
+     overflow: hidden; 
+     white-space: nowrap;
+}
+
+.timeStamp{
+    /* width:75px; */
+     text-overflow: ellipsis;
+     overflow: hidden; 
+     white-space: nowrap;
+}
+
+.time{
+    height:30px;
+}
+.navigation:hover{
+    outline-color: transparent !important;
+    cursor: pointer;
+}
+igx-carousel{
+    outline: none;
+  }
+  
+  div.igx-slide {
+    outline:none;
+  }
+
+  .leftImage{
+      margin-left:0px;
+  }
+ 
+  .left-arrow:hover{
+     
+      cursor:pointer;
+    
+  }
+
+  .right-arrow:hover{
+    
+    cursor:pointer;
+    
+  }
+  /* .carouselLayout:hover{
+    cursor: pointer;
+  } */
+
+  /* .indi{
+     visibility:hidden;
+
+  } */
+
+  .enableIcons{
+      cursor:pointer;
+  }
+.PDNAME{
+    font-family: ABBvoice;
+font-size: 20px;
+}

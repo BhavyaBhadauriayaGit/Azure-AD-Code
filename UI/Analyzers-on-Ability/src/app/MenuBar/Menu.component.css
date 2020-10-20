@@ -1,0 +1,144 @@
+
+.example-menu
+{
+  /* margin-top: -20px; */
+  margin-left:0px !important;
+  height:64px;
+  width: 100%;
+  background: #262626;    
+  border: 1px solid #262626;
+  color:#D2D2D2;
+  /* position: fixed;
+  z-index: 2; */
+  position: absolute;
+  top:3px !important;
+}
+
+/*
+.menu
+{
+
+  margin-left:-8px;
+ 
+
+}
+*/
+
+.logout{
+  width: 125px;
+  border-radius:0px;
+}
+
+
+
+  .AddButton
+  {
+    float:right;
+  }
+
+  button
+  {
+    font-size: 12px;
+   
+    height: auto;
+    margin-left: 10px;
+  }
+  .changePassword{
+    border-radius:0px;
+    color:white;
+    /* width: 125px; */
+  }
+
+  .ChangePassword{
+    width:125px;
+    color:#464646;
+    border-radius:0px;
+  }
+.logo
+{
+  width:65px;
+  height:25px;
+}
+
+.image
+{
+ float:left;
+ margin-right: 15px;
+ margin-left:35px;
+}
+
+ h2
+{   
+  font-family: ABBvoice;
+  font-style: Regular;
+  font-size: 20px;
+  line-height: 25px;
+  margin-top:-5px;
+}
+
+.MenuHeading
+{
+ overflow-y: hidden;
+   
+}
+
+
+.icon-logout 
+{
+  margin-left:20px;
+  /* background: url('../../assets/images/UI_UserInCircle_24.png'); */
+  height: 26px;
+  width: 26px;
+  display: inline-flex;
+}
+ 
+.icon-email 
+{
+  background: url('../../assets/images/email.png');
+  height: 16px;
+  width: 17px;
+  display: inline-flex;
+}
+  
+/* Logout Toggle Component*/
+
+.toggle-button
+{
+  border-radius: 0px;
+   outline-color: transparent !important;
+  width: 50px;
+  margin-bottom: 10px;
+  float: right;
+  border: 0px;
+  background-color: #262626;
+}
+
+.toggle-content{
+  display: flex;
+  width: 300px;
+  height: 170px;
+}
+
+.toggle-section{
+  border:1px solid #373734;
+  margin-left: -225px !important;
+  flex-flow: row wrap;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  background-color: #262626;
+  align-items: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* Form Controls */
+.form-group {
+  color: #fff !important;
+  margin-top: 7px;
+}
+
+.ContentName
+{
+  color: #fff;
+}

@@ -1,0 +1,235 @@
+.bgcard{
+    background: #262626;
+    color: white;
+    padding: 20px;
+
+    
+}
+
+.bgcard p{
+    font-size: 32px;
+    margin-top: 15px;
+}
+
+.searchTerm{
+    width:236px;
+    background:white;
+    color:white;
+    margin-top: 16px;
+    margin-left: 162px;
+    border:1px solid #262626;
+    background-color: #262626;
+    border-bottom-style: solid;
+    border-bottom-color: grey; 
+    outline-color: transparent !important;
+    border-radius:0px !important;
+   
+}
+
+
+
+
+input#SchedSearch {
+    display: flex;
+    flex-wrap: wrap;
+    padding-right: 30px;
+}
+
+.searchIcon{
+    cursor: pointer;
+    margin-bottom: -5px;
+    position: absolute;
+    right: 40px !important;
+    width: 19px !important;
+    height: 20px ;
+    top: 20px !important; 
+}
+.deviceImage{
+    width:90px;
+    height:65px;
+}
+
+hr{
+    width:100%;
+    margin-top:5px;
+    color:#5A5A5A;
+    background:#5A5A5A;;
+    margin-bottom:5px;
+}
+.deviceDetails{
+    margin-left:-10px;
+}
+.ValueHaeding{
+font-family: ABBvoice;
+font-size: 14px;
+}
+
+.shdesign{
+    margin-left: 75px;
+}
+.space{
+    margin-bottom:10px;
+}
+.configure{
+    margin-left: 80px;
+    border-radius:0px;
+}
+.Diaologtime{width:61px;}
+.SaveCancel{
+    float:right;
+    margin-top: 10px;
+}
+.Save{
+    font-size:12px;
+    background: #0C74DA;
+    height: 33px;
+    width: 85px;
+    margin-right:10px;
+    border-radius:0px;
+
+}
+input[type=time]::-webkit-outer-spin-button,
+input[type=time]::-webkit-inner-spin-button {
+    -webkit-appearance: none !important;
+    display:none !important;
+}
+
+
+
+
+.vl{
+    border-right:1px solid grey;
+    height:50px;
+}
+
+.ellipsis{
+    width:250px;
+     text-overflow: ellipsis;
+     overflow: hidden; 
+     white-space: nowrap;
+}
+.Cancel{
+    font-size:12px;
+    background-color: #EAEAEA;
+    height: 33px;
+    width: 85px;
+    color: #464646;
+    margin-right:10px;
+    border-radius:0px;
+}
+.textvalue{
+    height:auto;
+    width:100%;
+    background-color: #000000;
+    color:#D2D2D2;
+   /* border: 1px solid #000000; */
+   border-radius: 0px;
+   border: none;
+}
+.option,select{
+    color:white;
+}
+
+select{
+    background: black;
+    margin-top:2px;
+    height:26px;
+    border-radius: 0px;
+}
+img{
+    vertical-align: text-bottom;
+}
+
+input[type='radio']:after {
+    width: 14px;
+    height: 14px;
+    border-radius: 14px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: black;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 1px solid grey;
+}
+.text{
+ font-family: ABBvoice;
+font-size: 12px;
+margin-left:3px;
+}
+.TitleHeading{
+    font-family: ABBvoice;
+
+    font-size: 20px;  
+}
+
+
+input[type='radio']:checked:after {
+    width: 14px;
+    height: 14px;
+    border-radius: 14px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: blue;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 4px solid black;
+}
+
+.greyText{
+    /* margin-top: 5px; */
+    color:grey;
+    border:1px solid grey;
+     border-radius: 10px;
+     padding:2px;
+     font-size:9px;
+     line-height: 11px;
+     width: 60px;
+     height: 15px;
+     text-align: center;
+}
+.redText{
+    /* margin-top: 5px; */
+    color:red;
+    border:1px solid red;
+     border-radius: 10px;
+     padding:2px;
+     font-size:9px;
+     line-height: 11px;
+     width: 60px;
+     height: 15px;
+     text-align: center;
+}
+
+.warningText{
+    color:orange;
+    border:1px solid orange;
+     border-radius: 10px;
+     padding:2px;
+     font-size:9px;
+     line-height: 11px;
+     width: 60px;
+     height: 15px;
+     text-align: center;
+}
+.greenText{
+    /* margin-top: 5px; */
+    color:green;
+    border:1px solid green;
+     border-radius: 10px;
+     padding:2px;
+     font-size:9px;
+     line-height: 11px;
+     width: 60px;
+     height: 15px;
+     text-align: center;
+}
+
+input[type="time"]::-webkit-calendar-picker-indicator {
+    color:white !important;
+  }
+
+ 

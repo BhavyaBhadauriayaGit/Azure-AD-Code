@@ -1,0 +1,142 @@
+<ng4-loading-spinner></ng4-loading-spinner>
+<div class="row">
+<div class="col-md-4 colheader">
+    <h2 class="ContentName">Reports List</h2>
+</div>
+<!-- <div class="col-md-3">
+    <label>Select by week,month and year</label>
+</div> -->
+<div class="col-md-8 weeklycalendar">
+        <select name="year" class="calendar year" [(ngModel)]="year" (change)="initiateFilterVerificationList();">
+        <option *ngFor="let yr of _year">{{yr}}</option>
+    </select>
+
+
+    <select name="month" class="calendar" [(ngModel)]="month" (change)="initiateFilterVerificationList();">
+        <option value=1>Jan</option>
+        <option value=2>Feb</option>
+        <option value=3>Mar</option>
+        <option value=4>Apr</option>
+        <option value=5>May</option>
+        <option value=6>Jun</option>
+        <option value=7>Jul</option>
+        <option value=8>Aug</option>
+        <option value=9>Sep</option>
+        <option value=10>Oct</option>
+        <option value=11>Nov</option>
+        <option value=12>Dec</option>
+    </select>
+
+
+    <select name="week" class="calendar week" [(ngModel)]="week" (change)="initiateFilterVerificationList();">
+        <!-- <option>Select All</option> -->
+        <option value=1>Week 1</option>
+        <option value=2>Week 2</option>
+        <option value=3>Week 3</option>
+        <option value=4>Week 4</option>
+        <option value=5>Week 5</option>
+        <option value=6>Week 6</option>
+    </select>
+</div>
+<button #btnHdn style="display: none" (click)="initiateFilterVerificationList();"></button>
+</div>
+<div class="grid__wrapper">
+
+    <igx-grid #grid1 id="grid1" [data]="_filteredVerificationHistoryList" [emptyGridTemplate]="noData" [paging]="true"
+        [perPage]="5" height="375px" width="100%" [paginationTemplate]="pager" class="hover-on-sort"  (onSortingDone)="removeSorting($event)">
+        <igx-column id="GridDbguid" class="columnHeader sorting" field="DBGUID" header="INSTANCE NUMBER"  width="30%">
+        </igx-column>
+        <igx-column id="GridDate"  class="columnHeader child1-hover" style="cursor:pointer !important" field="Date_Stamp"  [dataType]="'date'" sortable="true" header="DATE" width="20%">
+             <ng-template igxCell let-cell="cell">
+                <div class="cell__inner">
+                    {{ cell.value }}
+                </div>
+            </ng-template> 
+        </igx-column>
+        <igx-column id="GridTime" class="columnHeader"  style="cursor:pointer!important"  field="Time" header="TIME" sortable="true" width="15%">
+            <ng-template igxCell let-cell="cell">
+                <div class="cell__inner">
+                    {{cell.value}}
+                </div>
+            </ng-template>
+        </igx-column>
+
+        <igx-column class="columnHeader" field="Last_Verification_Result" header="STATUS" dataType="string" width="15%">
+            <ng-template igxCell let-cell="cell">
+                <div class="cell__inner">
+                    <div *ngIf="cell.value ==1" class="successText ">
+                        <span class="Pass">Passed</span>
+
+                    </div>
+                    <div *ngIf="cell.value ==2" class="fadedText">
+                        <span class="Incomplete ">Incomplete</span>
+
+                    </div>
+                    <div *ngIf="cell.value ==3 " class=" failedText">
+                        <span class="Fail ">Failed</span>
+
+                    </div>
+                    <div *ngIf="cell.value ==4 " class=" warningText">
+                        <span class="Warn ">Warning</span>
+
+                    </div>
+                </div>
+
+            </ng-template>
+
+
+
+        </igx-column>
+
+
+
+        <igx-column class="columnHeader" field="ResultVerificationId" header="DOWNLOAD" dataType="string" width="15%">
+            <ng-template igxCell let-cell="cell">
+
+
+                <div *ngIf="cell.row.rowData['Last_Verification_Result'] == 2 ; else elsecondition">
+                    <span><img class="gridImage" src="./assets/images/Report.png"></span>
+                    <span style="color:grey">REPORT</span>
+                </div>
+                <ng-template #elsecondition>
+                    <span></span>
+                    <a class="report" (click)="getVerificationResult(cell.value,LoggedInUser.Email,LoggedInUser.Email)">
+                        <span> <img class="gridImage" src="./assets/images/Report.png"></span>
+                        <span>REPORT</span>
+                    </a>
+                </ng-template>
+                <!-- <span><img src="./assets/images/Report.png"></span>
+                <a class="report" (click)="getVerificationResult(cell.value,'sanoob.husain@in.abb.com','sanoob.husain@in.abb.com')" >Report</a> 
+                -->
+            </ng-template>
+
+        </igx-column>
+
+    </igx-grid>
+    <ng-template #pager let-grid>
+        <div *ngIf="grid.paging && grid.totalPages > 0" class="igx-paginator">
+            <button [disabled]="grid.isFirstPage" (click)="grid.paginate(0)" igxButton="icon" igxRipple
+                igxRippleCentered="false">
+                <igx-icon>first_page</igx-icon>
+            </button>
+            <button [disabled]="grid.isFirstPage" (click)="grid.previousPage()" igxButton="icon" igxRipple
+                igxRippleCentered="false">
+                <igx-icon>chevron_left</igx-icon>
+            </button>
+            <span class="pages">{{ grid.page+1}} of {{ grid.totalPages }}</span>
+            <button [disabled]="grid.isLastPage" (click)="grid.nextPage()" igxRipple igxRippleCentered="false"
+                igxButton="icon">
+                <igx-icon>chevron_right</igx-icon>
+            </button>
+            <button [disabled]="grid.isLastPage" (click)="grid.paginate(grid.totalPages - 1)" igxButton="icon" igxRipple
+                igxRippleCentered="false">
+                <igx-icon>last_page</igx-icon>
+            </button>
+        </div>
+    </ng-template>
+    <ng-template #noData>
+        <span class="noData">
+            No Data Found!
+        </span>
+    </ng-template>
+</div>

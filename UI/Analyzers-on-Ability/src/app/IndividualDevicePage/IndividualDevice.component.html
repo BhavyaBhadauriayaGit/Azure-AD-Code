@@ -1,0 +1,328 @@
+<!-- //To be included in Main branch -->
+
+<ng4-loading-spinner [timeout]="30000" [threshold]="1000"></ng4-loading-spinner>
+<div class="container-fluid">
+  <MenuBar></MenuBar>
+
+  <div class="row">
+    <div>
+      <NavdrawerComponent></NavdrawerComponent>
+    </div>
+    <div class="col-md-11 design">
+      <div class="Card">
+        <mat-card class="example-card">
+          <div class="row">
+            <mat-card class="layout conditionMonitoring">
+              <mat-card-content>
+                <div class="row">
+                  <div class="col-md-9 ">
+                    <div class="HeadName">
+                      {{Title}} of
+                      <div class = "headerellipsis" title="{{ carouselVerificationHistory.Tag }}">{{ carouselVerificationHistory.Tag }}</div>
+                    </div>
+                  </div>
+                  <div class="col-md-3 ">
+                    <div class="row">
+                      <div id="IDLatest" class="col-md-8 latestReport">Latest report</div>
+                      <div id="IDStatus" class="col-md-4 status">
+                        <div *ngIf="this.IDELastVerficationResult == '1' "
+                             class="greenText statusText">Passed</div>
+                        <div *ngIf="this.IDELastVerficationResult == '2' "
+                             class="greyText statusText">Incomplete</div>
+                        <div *ngIf="this.IDELastVerficationResult =='3'"
+                             class="redText statusText">Failed</div>
+                         <div *ngIf="this.IDELastVerficationResult =='4'"
+                             class="orangeText statusText">Warning</div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-1 icons">
+                        <span>
+                          <img src="./assets/images/calendar.png">
+                        </span>
+                      </div>
+                      <div id="IDTime" class="col-md-10 text timestamp">
+                        {{this.dateTimeStamp}}
+                      </div>
+
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-6"
+                           *ngIf="this.IDELastVerficationResult =='2'|| carouselVerificationHistory.Time_Stamp == ''  ; else ElseLatestCondition">
+                        <button id="IDDownload1" class="btn btn-primary" [disabled]="true"
+                                style="cursor: default;margin-top: 10px;"
+                                (click)="getVerificationResult(this.RESULTID,LoggedInUser.Email,LoggedInUser.Email)">
+                          Download
+                        </button>
+                      </div>
+                      <ng-template #ElseLatestCondition>
+                        <div class="col-md-6">
+                          <button id="IDDownload2" class="btn btn-primary"
+                                  style="margin-top: 10px;" [disabled]="downloadLatest_status"
+                                  (click)="getVerificationResult(this.RESULTID,LoggedInUser.Email,LoggedInUser.Email)">
+                            Download
+                          </button>
+                        </div>
+                      </ng-template>
+                      <div class="col-md-6">
+                        <button id="IdCreateNew" class="btn btn-default createnew" [disabled]="createNew_status"
+                                (click)="getInstanceReport(carouselVerificationHistory.DBGUID,LoggedInUser.Email)">
+                          Create
+                          new
+                        </button>
+                      </div>
+
+                    </div>
+
+
+                  </div>
+
+                </div>
+
+              </mat-card-content>
+            </mat-card>
+          </div>
+
+          <div class="row">
+            <mat-card class="col-md-3 cardDesign" id="deviceInfo">
+              <mat-card-content>
+                <div class="info">Information</div>
+                <div><img class="deviceImage" src="./assets/images/Image.jpg"></div>
+                <div class="row">
+                  <div class="col-md-1 icons">
+                    <span>
+                      <img src="./assets/images/label.png" class="Infoicons">
+                    </span>
+                  </div>
+                  <div id="IDDeviceName" class="col-md-10 deviceDetails">
+                    NAME
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div id="IDTAg1" class="col-md-12 ellipsis text Infodetails" title = "{{ carouselVerificationHistory.Tag }}">{{ carouselVerificationHistory.Tag }}</div>
+                </div>
+                <div class="row">
+                  <div class="col-md-1 icons">
+                    <span>
+                      <img src="./assets/images/name.png" class="Infoicons">
+                    </span>
+                  </div>
+                  <div class="col-md-10  deviceDetails">
+                    INSTANCE NUMBER
+                  </div>
+                </div>
+                <div class="row">
+                  <div id="IDDBguid1" class="col-md-12 ellipsis text Infodetails"
+                       title="{{ carouselVerificationHistory.DBGUID }}">
+                    {{ carouselVerificationHistory.DBGUID }}
+                  </div>
+
+                </div>
+                <div class="row">
+                  <div class="col-md-1 icons">
+                    <span>
+                      <img src="./assets/images/servisid.png"  class="Infoicons">
+                    </span>
+                  </div>
+                  <div class="col-md-10 deviceDetails">
+                    SERVIS ID
+                  </div>
+                </div>
+                <div class="row">
+                  <div id="IDServis1" class="col-md-12 ellipsis text Infodetails" title = " {{ carouselVerificationHistory.ServISId }}"> {{ carouselVerificationHistory.ServISId }}</div>
+
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-md-1 icons">
+                    <span>
+                      <img src="./assets/images/calendar.png"  class="Infoicons">
+                    </span>
+                  </div>
+                  <div class="col-md-3 deviceDetails">
+                    TYPE
+                  </div>
+                  <div class="col-md-1 icons">
+                    <span>
+                      <img src="./assets/images/value.png"  class="Infoicons">
+                    </span>
+                  </div>
+                  <div class="col-md-3 deviceDetails">
+                    VALUE
+                  </div>
+                  <div class="col-md-1 icons">
+                    <span>
+                      <img src="./assets/images/Time.png"  class="Infoicons">
+                    </span>
+                  </div>
+                  <div class="col-md-2 deviceDetails">
+                    TIME
+                  </div>
+                </div>
+                <div class="row">
+
+                  <div id="IDType1" class="col-md-4 text Infodetails">
+                    <div *ngIf="carouselVerificationHistory.Type=='DLY'" class="IdType">Daily</div>
+                    <div *ngIf="carouselVerificationHistory.Type=='WKL'" class="IdType">Weekly</div>
+                    <div *ngIf="carouselVerificationHistory.Type=='MTL'" class="IdType">Monthly</div>
+                    <!-- {{ carouselVerificationHistory.Type }} -->
+                  </div>
+
+                  <div  class="col-md-4 text">
+                    <div id="IDTypeValue1" *ngIf="carouselVerificationHistory.Type == 'DLY'" [hidden]="carouselVerificationHistory.Value"> {{carouselVerificationHistory.Value}}</div>
+                    <div *ngIf="carouselVerificationHistory.Type=='WKL' && carouselVerificationHistory.Value=='1'" class="IdValue">
+                      MON
+                    </div>
+                    <div *ngIf="carouselVerificationHistory.Type=='WKL' && carouselVerificationHistory.Value=='2'" class="IdValue">
+                      TUE
+                    </div>
+                    <div *ngIf="carouselVerificationHistory.Type=='WKL' && carouselVerificationHistory.Value=='3'" class="IdValue">
+                      WED
+                    </div>
+                    <div *ngIf="carouselVerificationHistory.Type=='WKL' && carouselVerificationHistory.Value=='4'" class="IdValue">
+                      THU
+                    </div>
+                    <div *ngIf="carouselVerificationHistory.Type=='WKL' && carouselVerificationHistory.Value=='5'" class="IdValue">
+                      FRI
+                    </div>
+                    <div *ngIf="carouselVerificationHistory.Type=='WKL' && carouselVerificationHistory.Value=='6'" class="IdType">
+                      SAT
+                    </div>
+                    <div *ngIf="carouselVerificationHistory.Type=='WKL' && carouselVerificationHistory.Value=='7'" class="IdType">
+                      SUN
+                    </div>
+                    <div id="IDTypeValue1"  *ngIf="carouselVerificationHistory.Type=='MTL'" class="IdType">
+                      {{ carouselVerificationHistory.Value }}
+                    </div>
+
+                  </div>
+
+
+                  <div id="IdTime2" class="col-md-4 text" style="margin-left:-22px;">
+                    {{ carouselVerificationHistory.Time }}
+                  </div>
+                </div>
+
+
+              </mat-card-content>
+            </mat-card>
+
+            <mat-card class="col-md-3 cardDesign" id="calendarView">
+              <mat-card-content>
+                <div class="sample-wrapper">
+                  <div class="sample-content">
+                    <igx-calendar weekStart="1"
+                                  [formatOptions]="{ day: '2-digit', month: 'short', weekday: 'narrow', year: 'numeric' }"
+                                  selection="multi" #calendar (click)="Loadgrid_OnClickedDate($event)">
+                    </igx-calendar>
+
+                  </div>
+                </div>
+              </mat-card-content>
+            </mat-card>
+
+            <mat-card class="col-md-5 cardDesign" id="reportInfo">
+              <mat-card-content>
+                <div class="info">Reports List</div>
+                <igx-grid #grid1 [emptyGridTemplate]="noData" id="grid1" [data]="_gridFilterData"
+                          [paging]="true" [perPage]="6" height="100%" [paginationTemplate]="pager"
+                          [displayDensity]="'compact'">
+
+                  <igx-column  class="columnHeader" field="Date_Stamp" dataType="date" sortable="true" header="DATE"
+                              width="25%">
+                    <ng-template igxCell let-cell="cell">
+                      <div id="IDDatevalue" class="cell__inner ellipsis" title="{{ cell.value }}">
+                        {{ cell.value }}
+                      </div>
+                    </ng-template>
+                  </igx-column>
+                  <igx-column class="columnHeader" field="Time" sortable="true" header="TIME"
+                              width="25%">
+                    <ng-template igxCell let-cell="cell">
+                      <div id="IdTimevalue" class="cell__inner">
+                        {{cell.value}}
+                      </div>
+                    </ng-template>
+                  </igx-column>
+                  <igx-column  class="columnHeader" field="Last_Verification_Result" header="STATUS" width="25%">
+                    <ng-template igxCell let-cell="cell">
+                      <div class="cell__inner">
+                        <div id="IdStatus" *ngIf="cell.value ==2 " class="fadedText">
+                          <span class="Incomplete">Incomplete</span>
+
+                        </div>
+                        <div *ngIf="cell.value ==3" class="failedText">
+                          <span class="Fail">Failed</span>
+
+                        </div>
+                        <div *ngIf="cell.value ==1" class="successText">
+                          <span class="Pass">Passed</span>
+
+                        </div>
+                        <div *ngIf="cell.value ==4" class="warningText">
+                          <span class="Warn">Warning</span>
+
+                        </div>
+                      </div>
+                    </ng-template>
+                  </igx-column>
+                  <igx-column class="columnHeader" field="ResultVerificationId" header="REPORTS"
+                              width="25%">
+                    <ng-template igxCell let-cell="cell">
+                      <div *ngIf="cell.row.rowData['Last_Verification_Result'] == 2 ; else elsecondition">
+                        <span>
+                          <img src="./assets/images/Report.png"><span style="color:grey">REPORT</span>
+                        </span>
+                        <!-- <span style="color:grey">Report</span> -->
+                      </div>
+                      <ng-template #elsecondition>
+
+                        <a class="report"
+                           (click)="getVerificationResult(cell.value,LoggedInUser.Email,LoggedInUser.Email, cell.row.rowData['Time_Stamp'])">
+                          <span><img src="./assets/images/Report.png"></span>REPORT
+                        </a>
+                      </ng-template>
+                    </ng-template>
+                  </igx-column>
+                </igx-grid>
+                <ng-template #noData>
+                  <span class="noData">
+                    No Data Found!
+                  </span>
+                </ng-template>
+                <ng-template #pager let-grid>
+                  <div *ngIf="grid.paging && grid.totalPages > 0" class="igx-paginator">
+                    <button [disabled]="grid.isFirstPage" (click)="grid.paginate(0)"
+                            igxButton="icon" igxRipple igxRippleCentered="false">
+                      <igx-icon>first_page</igx-icon>
+                    </button>
+                    <button [disabled]="grid.isFirstPage" (click)="grid.previousPage()"
+                            igxButton="icon" igxRipple igxRippleCentered="false">
+                      <igx-icon>chevron_left</igx-icon>
+                    </button>
+                    <span class="pages">{{ grid.page+1}} of {{ grid.totalPages }}</span>
+                    <button [disabled]="grid.isLastPage" (click)="grid.nextPage()" igxRipple
+                            igxRippleCentered="false" igxButton="icon">
+                      <igx-icon>chevron_right</igx-icon>
+                    </button>
+                    <button [disabled]="grid.isLastPage"
+                            (click)="grid.paginate(grid.totalPages - 1)" igxButton="icon" igxRipple
+                            igxRippleCentered="false">
+                      <igx-icon>last_page</igx-icon>
+                    </button>
+                  </div>
+                </ng-template>
+              </mat-card-content>
+            </mat-card>
+
+
+          </div>
+        </mat-card>
+      </div>
+    </div>
+
+  </div>
+</div>

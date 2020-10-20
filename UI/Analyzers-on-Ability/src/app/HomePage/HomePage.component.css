@@ -1,0 +1,117 @@
+/* .container{
+    max-width: 100%;
+} */
+
+.container-fluid{
+    max-width:100%;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+} 
+
+.layout{
+  
+    background: #262626;    
+    margin:8px;
+    color: white;
+   display:block;
+   width:100%;
+    
+}
+   .HeadName{
+    margin-top:20px;
+    font-family: ABBvoice;
+    font-style:Medium;
+    font-size: 32px;
+    line-height: 38px;
+   } 
+
+  .carousel{
+      margin-top:10px;
+  }
+    
+   .conditionMonitoring{   
+    height: auto;
+    margin-top: 73px;
+}
+
+.deviceDetails{
+height: auto;
+}
+
+#reportList{
+height: auto;
+}
+
+
+.dropdown{
+    position: relative;
+    float:right;
+    color:white;
+   
+   margin-right: 20px;
+   background:black;
+
+
+}
+
+.Card{
+    margin-top: -15px;;
+    /* margin-left: -31px; */
+}
+
+.MenuArea{width:100%;}
+.piechart{
+    width:482px;
+    height:100px;
+}
+
+
+.igx-button--icon{
+    outline-color: transparent !important;
+}
+
+
+.design{
+    /* z-index:-1; */
+    margin-left:70px;
+}
+/* .Navmenu{
+    margin-top:12px;
+} */
+
+/* .igx-dialog, .igx-dialog__window {
+    background-color: #000 !important;
+}
+
+.igx-dialog__window-title {
+    background-color: #000 !important;
+    color: #ffffff !important;
+} */
+
+
+.dialogNewRecord {
+    /* background-color: #000 !important; */
+    color: #ffffff !important;
+    margin-left: 21px;
+}
+.igx-dialog,.igx-dialog__window {
+   width: 130px !important;
+}
+
+.igx-dialog__window-content{color:white !important;}
+
+  /* Added for design of the dialog box when deleting the user
+  .igx-dialog__window {
+    background-color: #000 !important;
+}
+
+.igx-dialog__window-title {
+    
+    color: #ffffff !important;
+}
+
+.igx-dialog__window-actions button ~ button {
+    color: #fff !important;
+    background-color: #007bff !important;
+    border-color: #007bff !important;
+} */

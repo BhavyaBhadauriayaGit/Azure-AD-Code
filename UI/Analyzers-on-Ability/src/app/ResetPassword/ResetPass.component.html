@@ -1,0 +1,80 @@
+<ng4-loading-spinner [timeout]="30000" [threshold]="1000"></ng4-loading-spinner>
+<div class="container">
+
+    <div class="menu">
+        <!-- <MenuBar></MenuBar> -->
+        <LoginMenuBarComponent></LoginMenuBarComponent>
+    </div>
+
+    <div class="row ">
+
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <div>
+                <img src="./assets/images/login1.png">
+            </div>
+
+            <div class=" loginPage">
+
+
+                <div class="loginDetails">
+                    <div class="login">
+                        <div class="benchmark">_</div>
+                        <div class="header">Reset your password </div>
+
+                        <!-- <div class="credentials">Type your new password</div>  -->
+
+
+
+                        <form [formGroup]="registerForm" class="text resetdetails" (ngSubmit)="onSubmit()">
+
+                            <div class="form-group">
+                                <label class="labelName"><span class="icon-password"></span>PASSWORD</label>
+                                <input type="password" formControlName="Password" class="form-control inputbox"
+                                    [ngClass]="{ 'is-invalid': submitted && f.Password.errors && f.Password.touched }"
+                                    placeholder="Enter password" />
+                                <div *ngIf="submitted && f.Password.errors && f.Password.touched" class="invalid-feedback">
+                                    <div *ngIf="f.Password.errors.required">Password is required</div>
+                                    <!-- <div *ngIf="f.Password.errors.minlength">Password must be at least 8
+                                            characters
+                                        </div> -->
+                                    <div *ngIf="f.Password.errors.pattern">Use at least 8 characters with a mix of
+                                        numbers,<br>
+                                        uppercase, lowercase and special characters</div>
+                                    <div *ngIf="f.Password.errors.maxlength">Password can be maximum of 12
+                                        characters</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+
+                                <input type="password" formControlName="passwordConfirm" class="form-control inputbox"
+                                    [ngClass]="{ 'is-invalid': submitted && f.passwordConfirm.errors && f.passwordConfirm.touched}"
+                                    placeholder="Re-enter password" />
+                                <div class="warnings"> Use at least 8 characters with a mix of numbers,<br>
+                                    uppercase, lowercase and special characters</div>
+                                <div *ngIf="submitted && f.passwordConfirm.errors && f.passwordConfirm.touched" class="invalid-feedback">
+                                    <div *ngIf="f.passwordConfirm.errors.minlength">Password must be at
+                                        least 8
+                                        characters</div>
+                                    <div *ngIf="f.passwordConfirm.errors?.notEquivalent">Password not
+                                        matching</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+
+                                <button class="loginbtn btn btn-primary" #btn_User_addupdate> Confirm</button>
+
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+
+    </div>
+</div>

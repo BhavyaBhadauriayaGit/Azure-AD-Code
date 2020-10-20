@@ -1,0 +1,213 @@
+<ng4-loading-spinner [timeout]="30000" [threshold]="1000"></ng4-loading-spinner>
+<div class="container-fluid">
+    <div>
+        <MenuBar></MenuBar>
+    </div>
+    <div class="row">
+        <div>
+            <NavdrawerComponent></NavdrawerComponent>
+        </div>
+        <div class="col-md-11 design">
+            <div class="Card">
+                <mat-card class="example-card">
+                    <div class="row">
+                        <mat-card class="layout conditionMonitoring">
+                            <mat-card-content>
+                                <div id="UAMHeader">
+                                    <h2 class="HeadName">
+                                        User management</h2>
+                                </div>
+                            </mat-card-content>
+                        </mat-card>
+                    </div>
+
+                    <div class="row">
+
+                        <mat-card class=" col-md-8 layout" id="UserList">
+                            <mat-card-content>
+                                <div id="UAMUserlist">
+                                    <h2 class="ContentName">User list
+                                        <div class="search Searchboxalign">
+                                            <input  id="UAMSearch" type="text" class="searchTerm searchfont" placeholder="Search for E-mail"
+                                                (input)="filter($event.target.value)">
+                                            <img src="../../assets/images/search.png" class="searchIcon">
+                                        </div>
+                                    </h2>
+                                </div>
+                                <igx-grid #grid_Userdetails [emptyGridTemplate]="noData" id="grid_Userdetails" [data]="_adduserinfo"
+                                    [paging]="true" [perPage]="10" height="100%" [paginationTemplate]="pager" 
+                                    [displayDensity]="'compact'">
+                                    <igx-column class="columnHeader" field="Email" [dataType]="'string'" sortable="true" header="E-MAIL"
+                                        width="40%">
+                                        <ng-template igxCell let-cell="cell">
+                                            <div id="cellValue1" class="cell__inner " title="{{ cell.value }}">
+                                                {{ cell.value }}
+                                            </div>
+                                        </ng-template>
+                                    </igx-column>
+                                    <igx-column class="columnHeader" field="RoleName" [dataType]="'string'"  header="ROLES"
+                                        width="20%">
+                                        <ng-template igxCell let-cell="cell">
+                                            <div id="cellValue2" class="cell__inner " title="{{ cell.value }}" *ngIf="cell.value == 'Super User';else elseContent">
+                                                {{ cell.value }}
+                                            </div>
+                                            <ng-template #elseContent class="cell__inner ellipsis" title="Operator">
+                                                Operator
+                                            </ng-template>
+                                        </ng-template>
+                                    </igx-column>
+                                    <igx-column class="columnHeader" header="ACTIONS" width="15%">
+                                        <ng-template igxCell let-cell="cell">
+                                            <div id="cellValue3" class="cell__inner Userdetails" title="Details" (click)="userdetail(cell.cellID.rowID)">
+                                                <span><img class="icon-usercircle" src="./assets/images/UserInCircle_16.png"></span>
+                                                <span> DETAILS</span>
+                                            </div>
+                                        </ng-template>
+                                    </igx-column>
+                                    <igx-column width="12.5%">
+                                        <ng-template igxCell let-cell="cell">
+                                            <button class=".igx-grid-cell-button" igxButton igxRipple (click)="editUserRow(cell.cellID.rowID)">
+                                                <span id="CellValue4" class="icon-edit"></span> &nbsp; EDIT
+                                            </button>
+                                        </ng-template>
+                                    </igx-column>
+                                    <igx-column width="12.5%">
+                                        <ng-template igxCell let-cell="cell">
+                                            <button id="cellValue5" class=".igx-grid-cell-button" igxButton igxRipple (click)="deleteUserRow(cell.cellID)">
+                                                <span class="icon-delete"></span>
+                                            </button>
+                                        </ng-template>
+                                    </igx-column>
+                                </igx-grid>
+
+                                <igx-dialog class="cancel" #dialogConfirm title="Delete User" [rightButtonLabel]="'OK'"  (onRightButtonSelect)="ClearUserDetails()"
+                                    [leftButtonLabel]="'Cancel'" (onLeftButtonSelect)="dialogConfirm.close()"
+                                    (onRightButtonSelect)="deleteRow()">
+                                    <div class="dialogNewRecord">
+                                        Clicking OK will delete data, do you want to proceed?
+                                    </div>
+                                </igx-dialog>
+                                <ng-template #noData>
+                                    <span class="noData">
+                                        No Data Found!
+                                    </span>
+                                </ng-template>
+                                <ng-template #pager let-grid>
+                                    <div *ngIf="grid.paging && grid.totalPages > 0" class="igx-paginator">
+                                        <button [disabled]="grid.isFirstPage" (click)="grid.paginate(0)" igxButton="icon"
+                                            igxRipple igxRippleCentered="false">
+                                            <igx-icon>first_page</igx-icon>
+                                        </button>
+                                        <button [disabled]="grid.isFirstPage" (click)="grid.previousPage()" igxButton="icon"
+                                            igxRipple igxRippleCentered="false">
+                                            <igx-icon>chevron_left</igx-icon>
+                                        </button>
+                                        <span class="pages">{{ grid.page+1}} of {{ grid.totalPages }}</span>
+                                        <button [disabled]="grid.isLastPage" (click)="grid.nextPage()" igxRipple
+                                            igxRippleCentered="false" igxButton="icon">
+                                            <igx-icon>chevron_right</igx-icon>
+                                        </button>
+                                        <button [disabled]="grid.isLastPage" (click)="grid.paginate(grid.totalPages - 1)"
+                                            igxButton="icon" igxRipple igxRippleCentered="false">
+                                            <igx-icon>last_page</igx-icon>
+                                        </button>
+                                    </div>
+                                </ng-template>
+                            </mat-card-content>
+                        </mat-card>
+                        <mat-card class="col-md-3 layout" id="NewUser">
+                            <mat-card-content>
+                                <h2 id="NewUserHeader" class="ContentName">{{ userheadertext}}</h2>
+                                <div class="formContent">
+                                    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                                        <div class="form-group">
+                                            <label><span class="icon-name"></span> NAME</label>
+                                           <input id="UAMNAme" type="text" formControlName="Name" style="border-color:none !important;outline:0px !important;" class="form-control formControlUse" [ngClass]="{ 'is-invalid': submitted && f.Name.errors }"
+                                                placeholder="Enter Name"  /> <!-- && f.Name.touched -->
+                                            <div *ngIf="submitted && f.Name.errors" class="invalid-feedback">
+                                                <div *ngIf="f.Name.errors.required">Name is required</div>
+                                                <div *ngIf="f.Name.errors.pattern">Please Enter a valid name</div>
+                                                <div *ngIf="f.Name.errors.minlength">Name must be at least 4
+                                                    characters</div>
+                                                <div *ngIf="f.Name.errors.maxlength">Name can be maximum of 150
+                                                    characters</div>
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="form-group">
+                                            <label><span class="icon-email"></span> E-MAIL</label>
+                                            <input id="UAMEmail" type="text" formControlName="Email" class="form-control formControlUse" [ngClass]="{ 'is-invalid': submitted && f.Email.errors }"
+                                                placeholder="Enter E-mail" /> <!-- && f.Email.touched -->
+                                            <div *ngIf="submitted && f.Email.errors" class="invalid-feedback">
+                                                <div *ngIf="f.Email.errors.required">E-mail is required</div>
+                                             <!-- <div *ngIf="f.Email.errors.pattern">E-mail pattern is incorrect</div>-->   
+                                                <div *ngIf="f.Email.errors.pattern || f.Email.errors.email">E-mail must be a valid E-mail address</div>
+                                            </div>
+                                            <!-- <div *ngIf="submitted && f.Email.errors" class="invalid-feedback">
+                                            <div *ngIf="f.Email.errors.pattern">E-mail pattern is incorrect</div>
+                                            </div> -->
+                                        </div>
+                                        <div class="form-group">
+                                            <label><span class="icon-password"></span> PASSWORD</label>
+                                            <input id="UAMPAssword"  type="password" formControlName="Password" class="form-control formControlUse"
+                                                [ngClass]="{ 'is-invalid': submitted && f.Password.errors }"
+                                                placeholder="Enter password" /> <!-- && f.Password.touched -->
+                                            <div *ngIf="submitted && f.Password.errors" class="invalid-feedback">
+                                                <div *ngIf="f.Password.errors.required">Password is required</div>
+                                                <div *ngIf="f.Password.errors.minlength">Password must be at least 8
+                                                    characters</div>
+                                                <div *ngIf="f.Password.errors.maxlength">Password can be maximum of 12
+                                                    characters</div>
+                                                <div *ngIf="f.Password.errors.pattern">At least one upper case english
+                                                    letter <br />
+                                                    At least one lower case english letter <br />
+                                                    WhiteSpace not allowed <br />
+                                                    At least one digit <br />
+                                                    At least one special character is required from ! / " @ # % * ? =</div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <input  id="UAMPAsswordConf" type="password" formControlName="passwordConfirm" class="form-control formControlUse"
+                                                [ngClass]="{ 'is-invalid': submitted && f.passwordConfirm.errors }"
+                                                placeholder="Re-enter password" />
+                                            <!-- && f.passwordConfirm.touched -->
+                                            <div *ngIf="submitted && f.passwordConfirm.errors" class="invalid-feedback">
+                                                <div *ngIf="f.passwordConfirm.errors.minlength">Password must be at
+                                                    least 8
+                                                    characters</div>
+                                                <div *ngIf="f.passwordConfirm.errors?.notEquivalent">Password not
+                                                    matching</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group" [ngClass]="{'hidden': registerForm.controls.RoleName.disabled }">
+                                            <input id="UAMRole1" type="radio" value="1" formControlName="RoleName" > &nbsp; SUPER
+                                            USER
+                                            <input id="UAMRole2" type="radio" value="2" formControlName="RoleName" [checked]="_default_role" class="operator">&nbsp;
+                                            OPERATOR
+
+                                            <div *ngIf="f.RoleName.invalid && submitted" class="invalid-feedback">User
+                                                role is required</div>
+
+                                        </div>
+                                        <!-- <div class="form-group d-none d-lg-block" style="float:right;">
+                                            <button class="btn btn-primary updatePassword" #btn_User_addupdate>{{
+                                                btnLabelUpdate }}</button> 
+                                            <button type="button" class="btn btn-default Cancel" (click)="ClearUserDetails(); registerForm.pristine">Reset</button>
+                                        </div> -->
+                                        <div class="row justify-content-sm-center">
+                                            <button class="btn btn-primary updatePassword col-md-5 col-sm-8" style="margin-left: 5px;margin-right: 5px;  margin-top: 10px;" #btn_User_addupdate>{{
+                                                btnLabelUpdate }}</button>
+                                            <button type="button" class="btn btn-default col-md-5 col-sm-8" style="margin-left: 5px;margin-right: 5px; margin-top: 10px;" (click)="ClearUserDetails(); registerForm.pristine">Reset</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </mat-card-content>
+                        </mat-card>
+                    </div>
+                </mat-card>
+            </div>
+        </div>
+
+    </div>
+</div>

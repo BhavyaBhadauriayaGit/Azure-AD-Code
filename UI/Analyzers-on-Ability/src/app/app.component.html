@@ -1,0 +1,19 @@
+<mat-toolbar color="primary">
+    <a class="title" [routerLink]="['/profile']">{{ title }}</a>
+    
+    <div class="toolbar-spacer"></div>
+  <div class ="body">
+    <a mat-button [routerLink]="['/profile']">profile</a>
+  
+    
+  
+    <button mat-raised-button *ngIf="!loggedIn" (click)="login()">Login</button>
+    <button mat-raised-button *ngIf="loggedIn" (click)="logout()">Logout</button>
+</div>
+  </mat-toolbar>
+  <div class="container">
+    <!--This is to avoid reload during acquireTokenSilent() because of hidden iframe -->
+    <router-outlet ></router-outlet>
+  </div>
+
+  

@@ -1,0 +1,67 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29418.71
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UAM", "UAM\UAM.csproj", "{FFD81D61-9D49-4FEC-9DA0-99582F88D21E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UAM.Tests", "UAM.Tests\UAM.Tests.csproj", "{DE919158-176A-493B-AB8E-631DD68EC73A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UAM.DL", "UAM.DL\UAM.DL.csproj", "{D532E3C4-8721-4E1F-A6A3-B490F7A1253B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UAM.BO", "UAM.BO\UAM.BO.csproj", "{F2954B2C-E17D-4505-9B85-219F1CF941BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UAM.Service", "UAM.Service\UAM.Service.csproj", "{D02C90EB-6A69-49A4-9CFC-4152EDB6D661}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FFD81D61-9D49-4FEC-9DA0-99582F88D21E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFD81D61-9D49-4FEC-9DA0-99582F88D21E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFD81D61-9D49-4FEC-9DA0-99582F88D21E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFD81D61-9D49-4FEC-9DA0-99582F88D21E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE919158-176A-493B-AB8E-631DD68EC73A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE919158-176A-493B-AB8E-631DD68EC73A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE919158-176A-493B-AB8E-631DD68EC73A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE919158-176A-493B-AB8E-631DD68EC73A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D532E3C4-8721-4E1F-A6A3-B490F7A1253B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D532E3C4-8721-4E1F-A6A3-B490F7A1253B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D532E3C4-8721-4E1F-A6A3-B490F7A1253B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D532E3C4-8721-4E1F-A6A3-B490F7A1253B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2954B2C-E17D-4505-9B85-219F1CF941BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2954B2C-E17D-4505-9B85-219F1CF941BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2954B2C-E17D-4505-9B85-219F1CF941BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2954B2C-E17D-4505-9B85-219F1CF941BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D02C90EB-6A69-49A4-9CFC-4152EDB6D661}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D02C90EB-6A69-49A4-9CFC-4152EDB6D661}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D02C90EB-6A69-49A4-9CFC-4152EDB6D661}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D02C90EB-6A69-49A4-9CFC-4152EDB6D661}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FF20B73B-BD91-4118-B2CB-186B7583A067}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfsa.abb.com/tfs/pamp
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = UAM.Service\\UAM.Service.csproj
+		SccProjectName1 = UAM.Service
+		SccLocalPath1 = UAM.Service
+		SccProjectUniqueName2 = UAM.BO\\UAM.BO.csproj
+		SccProjectName2 = UAM.BO
+		SccLocalPath2 = UAM.BO
+		SccProjectUniqueName3 = UAM.DL\\UAM.DL.csproj
+		SccProjectName3 = UAM.DL
+		SccLocalPath3 = UAM.DL
+		SccProjectUniqueName4 = UAM.Tests\\UAM.Tests.csproj
+		SccProjectName4 = UAM.Tests
+		SccLocalPath4 = UAM.Tests
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,378 @@
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css';
+
+
+.basic-container {
+  padding: 30px;
+}
+
+
+input:invalid {
+  border-color: #DD2C00 !important;
+}
+
+.download{
+  margin-top: 0px;
+  border-radius: 0px;
+  padding: 0px 27px 5px 18px;
+  width: 160px !important;
+}
+
+.container-fluid{
+    max-width: 100%;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+.red{
+  border: solid 1px red !important;
+}
+/* 
+.example-menu {
+  
+   
+    margin-left:0px !important;
+    height:64px !important;
+    width: 100% !important;
+    background: #262626 !important;    
+    border: 1px solid #262626 !important;
+    color:#D2D2D2 !important;
+    position: absolute !important;
+ 
+    top:0px!important;
+}*/
+
+
+
+
+
+.layout{
+    background: #262626;    
+    margin:8px;
+    color: white;
+   display:block;
+   width:100%;
+    
+}
+
+   .HeadName{
+    margin-top:0px;
+    font-family: ABBvoice;
+    font-style:Medium;
+    font-size: 32px;
+    line-height: 38px;
+   } 
+    
+   .conditionMonitoring{   
+    height: auto;
+    margin-top:73px;
+}
+
+.deviceDetails{
+height: auto;
+}
+
+#reportList{
+height: auto;
+}
+
+
+.Card{
+    margin-left: -31px;
+}
+.csv-mat-card1{
+    max-width:99%;
+}
+
+.MenuArea{width:100%;}
+
+
+
+
+.design{
+    margin-left:0px !important;
+    padding:0px 15px;
+}
+
+.dialogNewRecord {
+    color: #ffffff !important;
+    margin-left: 21px;
+}
+
+table {
+    width: 100%;
+    margin:20px 0px 0px 0px;
+  }
+  
+ .divcards{
+    top:12px;
+    left:10px;
+    background: #262626;  
+    color: white;
+    margin-left:40px !important;
+}
+.download-btn-section{
+  position: absolute !important;
+    right: 24px;
+    bottom: 10px;
+}
+.search{
+  position: absolute;
+    bottom: 0px;
+    right: 0px !important;
+    display: flex;
+}
+
+.searchTerm{
+    background:white;
+    color:white;
+    width:213px;
+    margin-top:35px;
+    margin-left:54px;
+    border:1px solid #262626;
+    background-color: #262626;
+    border-bottom-style: solid;
+    border-bottom-color: grey; 
+    outline-color: transparent !important;
+    border-radius:0px !important;
+}
+
+img.searchIcon {
+  position: relative !important;
+  top: 36px !important;
+}
+
+.searchIcon{
+  cursor: pointer;
+  margin-bottom: -5px;
+  position: absolute;
+  right: 20px !important;
+  width: 19px !important;
+  height: 20px ;
+  top: 38px !important; 
+}
+
+hr{
+    width:100%;
+    margin-top:5px;
+    color:#5A5A5A;
+    background:#5A5A5A;;
+    margin-bottom:5px;
+}
+
+
+  .row-selector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: calc(1.25rem + (1.5rem * 2));
+  }
+
+ 
+.datenow{
+  padding-left: 0px;
+}
+.calender-img{
+  padding-left: 20px;
+  position: absolute;
+  right: 11px;
+  top: 13px;
+}
+.csv-grid{
+    max-width: 92%;
+}
+.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  .noData{
+    color:white;
+}
+.form-control:focus{
+  box-shadow: 0 0 0 0rem black;
+}
+
+
+.material-icons igx-icon{
+  outline-color: transparent !important;
+}
+
+.gridImage {
+  margin-bottom: -5px !important;
+}
+  
+  /* Hide the browser's default checkbox */
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    top: -8px;
+    left: -24px;
+    height: 25px;
+    width: 22px;
+    background-color: #000;
+    border: 1px grey solid;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .container:hover input ~ .checkmark {
+    background-color: #000000;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .container input:checked ~ .checkmark {
+    background-color: #000000;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .container .checkmark:after {
+    left: 6px;
+    top: 3px;
+    width: 7px;
+    height: 14px;
+    border: solid #007bff;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+
+  /* custom styles */
+ 
+  label {
+    display: block;
+  }
+  input {
+    width: 190px;
+  }
+
+  .startDate{
+    background-color: black;
+    color: #fff;
+    border: 0px;
+    visibility: hidden !important;
+  }
+
+
+/**********************material styles ************************/
+.first-column{
+width:175px !important;
+}
+
+.second-column{
+width:250px !important;
+}
+
+.third-column{
+width:150px;
+}
+
+.fourth-column
+{
+  width:150px;
+}
+
+th.mat-header-cell:first-child {
+  width: 50px !important;
+}
+
+input[type="date"]{
+  display: block !important;
+  background: black !important;
+  padding: 15px 36px 15px 30px !important;
+  border: 0px !important;
+  color: #d8d6d6 !important; 
+  border-radius: 0px !important;
+  border-left: 0.1px solid #565353 !important;
+  border-right: 0.1px solid #565353 !important;
+}
+
+td.mat-cell:first-child{
+  width:75px !important
+}
+
+.download-image{
+  margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    position: relative;
+    top: 5px;
+    right: 14px;
+  
+}
+
+.mat-checkbox-background{
+  display: none !important;
+}
+
+input.mat-input-element {
+  margin-top: 0px !important;
+}
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
+
+input#SchedSearch:focus{
+  outline: 0px !important;
+}
+
+
+	input.mat-input-element:invalid{
+    /* margin-top: 0px !important; */
+    border: 0.4px solid red !important;
+}
+
+
+input::-webkit-calendar-picker-indicator{
+  display: none !important;
+}
+
+input::-webkit-calendar-picker{
+  display: none !important;
+}
+
+input#SchedSearch {
+  padding-right: 27px;
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0px;
+}
+
+/**********************material styles ************************/
+@media screen and (max-width:1030px) and (min-width:768px) {
+    .col-small-device{
+      width:60%;
+    }
+    .csv-grid {
+      max-width: 89.5% !important;
+  }
+  }
+

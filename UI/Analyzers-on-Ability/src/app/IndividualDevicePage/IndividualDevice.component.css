@@ -1,0 +1,284 @@
+.igx-grid{
+    background: #262626;
+}
+
+.igx-grid__tbody{
+    background: #262626;
+    height:0px;
+}
+
+
+.createnew{
+  margin-top: 10px;
+  color:black;
+    
+}
+
+.download{
+  margin-top:10px;
+}
+
+.igx-grid__thead{
+    
+    background:#262626;
+}
+.cardDesign{
+    width:100%;
+    background: #262626;    
+    margin:15px;
+    color: white;
+}
+.deviceImage{
+    width:226px;
+    height:171px;
+
+}
+
+
+img{
+    width:14px;
+    height:14px;
+    margin-bottom: -3px !important;
+}
+
+hr{
+  width:100%;
+  margin-top: 5px;
+  background:#5A5A5A;
+   
+   /* margin-top:5px;
+   margin-bottom: 5px; */
+ }
+ .igx-calendar{
+     height:394px; 
+     background-color: #262626;
+   
+}
+
+.btn{
+  border-radius:0px;
+    font-size: 12px;
+    width: 112px;
+    height: 29px;
+    padding: 1px;
+}
+
+
+
+.latestReport{font-size: 20px;}
+.status{
+    padding:5px;
+}
+.deviceDetails{
+  margin-left:-7px;
+    font-size: 14px;
+    font-family: ABBvoice;
+    align-content: left;
+}
+
+.ellipsis{
+    width:180px;
+     text-overflow: ellipsis;
+     overflow: hidden; 
+     white-space: nowrap;
+}
+
+.headerellipsis{
+   width:70%;
+  text-overflow: ellipsis;
+  overflow: hidden; 
+  white-space: nowrap;}
+.timestamp{
+  margin-top:3px;
+}
+.date {
+    margin-top:-50px;
+}
+.statusText{
+    width:75px;
+    height:20px;
+    padding:5px;
+}
+/* .IdType{
+  margin-left:16px;
+} */
+.IdValue{
+  margin-left: -11px;
+}
+.report{
+    cursor: pointer;
+}
+
+.icons{
+ 
+    margin-right: -8px;
+}
+.noData{
+  color:white;
+}
+
+.sample-wrapper{
+    margin-top:-22px;
+}
+.info{
+    height:35px;
+}
+.Infodetails{
+  margin-left:2px;
+}
+#deviceInfo{
+  margin-left:8px;
+
+}
+
+.Infoicons{
+  width:14px;
+  height:18px;
+}
+
+#IDStatus{
+  margin-left:-30px;
+}
+
+#calendarView{margin-left:25px;}
+
+#reportInfo{margin-left:30px;}
+ /* .igx-calendar-picker__date {
+  color:white;
+}  */
+ .igx-calendar-picker__prev,.igx-calendar-picker__next,.igx-calendar-picker__date{
+  color:white;
+}
+.calendar-wrapper {
+    padding: 22px;
+  } 
+   :host.white-color-attr ::ng-deep .igx-calendar, :host.white-color-attr ::ng-deep .igx-calendar--vertical {
+      display: flex;
+      flex-flow: column nowrap;
+      width: 100%;
+      background: #262626;
+      overflow: hidden;
+      outline: none; }
+    :host.white-color-attr ::ng-deep .igx-calendar--vertical {
+      flex-flow: row nowrap; }
+      :host.white-color-attr ::ng-deep .igx-calendar--vertical .igx-calendar__header {
+        min-width: 10.5em; }
+    :host.white-color-attr ::ng-deep .igx-calendar__header {
+      background-color: #303030;
+      color: white !important;
+      padding: 1em; 
+    }
+    :host.white-color-attr ::ng-deep .igx-calendar__header-year {
+      margin: 0;
+      color: currentColor;
+      opacity: .8; }
+    :host.white-color-attr ::ng-deep .igx-calendar__header-date {
+      display: flex;
+      margin: 0; }
+      :host.white-color-attr ::ng-deep .igx-calendar__header-date .date-text {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden; }
+    :host.white-color-attr ::ng-deep .igx-calendar--vertical .igx-calendar__header-date, .igx-calendar--vertical :host.white-color-attr ::ng-deep .igx-calendar__header-date {
+      flex-flow: column nowrap; }
+    :host.white-color-attr ::ng-deep .date__el:hover, :host.white-color-attr ::ng-deep .date__el:focus {
+      color: white;
+      cursor: pointer; }
+    :host.white-color-attr ::ng-deep .igx-calendar__body-picker {
+      color:white;
+      display: flex;
+      height: 3.5em;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 1em;
+      padding-left: 1em;
+      padding-right: 1em; }
+    :host.white-color-attr ::ng-deep .prev, :host.white-color-attr ::ng-deep .next {
+      display: inline-flex;
+      color: white ;
+      user-select: none;
+      cursor: pointer; }
+      :host.white-color-attr ::ng-deep .prev:hover, :host.white-color-attr ::ng-deep .next:hover {
+        color: white !important; }
+    :host.white-color-attr ::ng-deep .igx-calendar[dir='rtl'] .prev, :host.white-color-attr ::ng-deep .igx-calendar--vertical[dir='rtl'] .prev,
+    :host.white-color-attr ::ng-deep .igx-calendar[dir='rtl'] .next,
+    :host.white-color-attr ::ng-deep .igx-calendar--vertical[dir='rtl'] .next {
+      transform: scaleX(-1); 
+    color:white;}
+    :host.white-color-attr ::ng-deep .date {
+      color: white;
+      text-align: center; }
+    :host.white-color-attr ::ng-deep .igx-calendar__body {
+      flex: 1 1 auto;
+      padding-top: 1em;
+      padding-bottom: 1em;
+      overflow: hidden; }
+    :host.white-color-attr ::ng-deep .igx-calendar__body-row, :host.white-color-attr ::ng-deep .igx-calendar__body-row--wrap {
+      color:white !important;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 1em; }
+    :host.white-color-attr ::ng-deep .igx-calendar__body-row--wrap {
+      flex-wrap: wrap; }
+    :host.white-color-attr ::ng-deep .igx-calendar__body-column {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: space-between;
+      align-items: center; }
+    :host.white-color-attr ::ng-deep .igx-calendar__label, :host.white-color-attr ::ng-deep .igx-calendar__date, :host.white-color-attr ::ng-deep .igx-calendar__date--inactive, :host.white-color-attr ::ng-deep .igx-calendar__date--selected, :host.white-color-attr ::ng-deep .igx-calendar__date--current, :host.white-color-attr ::ng-deep .igx-calendar__date--weekend, :host.white-color-attr ::ng-deep .igx-calendar__year, :host.white-color-attr ::ng-deep .igx-calendar__year--current, :host.white-color-attr ::ng-deep .igx-calendar__month, :host.white-color-attr ::ng-deep .igx-calendar__month--current {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 2.5em;
+      height: 2.5em;
+      min-width: 2ch;
+      margin: 0.125em;
+      border-radius: 1.25em;
+      color: white;
+      cursor: pointer;
+      outline: none;
+      transition: background .15s ease-out; }
+    :host.white-color-attr ::ng-deep .igx-calendar__label {
+      color: #D2D2D2 !important;
+      cursor: default;
+      border-radius: 0; }
+    :host.white-color-attr ::ng-deep .igx-calendar__date--weekend {
+      color: white; }
+    :host.white-color-attr ::ng-deep .igx-calendar__year, :host.white-color-attr ::ng-deep .igx-calendar__year--current {
+      display: flex;
+      margin: 0;
+      justify-content: center;
+      align-items: center;
+      min-width: 8ch;
+      height: 3.25rem; }
+    :host.white-color-attr ::ng-deep .igx-calendar__year--current {
+      color: white ; }
+    :host.white-color-attr ::ng-deep .igx-calendar__year:hover, :host.white-color-attr ::ng-deep .igx-calendar__year:focus {
+      color: white; }
+    :host.white-color-attr ::ng-deep .igx-calendar__month:hover, :host.white-color-attr ::ng-deep .igx-calendar__month:focus {
+      color: white; }
+    :host.white-color-attr ::ng-deep .igx-calendar__month, :host.white-color-attr ::ng-deep .igx-calendar__month--current {
+      display: flex;
+      margin: 0 0.75em;
+      flex: 1 0 25%;
+      justify-content: center;
+      align-items: center;
+      height: 5.6875em; }
+    :host.white-color-attr ::ng-deep .igx-calendar__month--current {
+      color: white ; }
+    :host.white-color-attr ::ng-deep .igx-calendar__date--inactive {
+      visibility:hidden;
+      cursor: pointer;
+      color: #515151; }
+    :host.white-color-attr ::ng-deep .igx-calendar__date--selected {
+      position: relative;
+      color: #0a0a0a;
+      background-color: white !important;
+      font-weight: 600 !important; }
+    :host.white-color-attr ::ng-deep .igx-calendar__date--current {
+      color: pink;
+      font-weight: 600 !important; }
+    :host.white-color-attr ::ng-deep .igx-calendar__date:hover, :host.white-color-attr ::ng-deep .igx-calendar__date:focus, :host.white-color-attr ::ng-deep .igx-calendar__date--inactive:hover, :host.white-color-attr ::ng-deep .igx-calendar__date--inactive:focus, :host.white-color-attr ::ng-deep .igx-calendar__date--current:hover, :host.white-color-attr ::ng-deep .igx-calendar__date--current:focus, :host.white-color-attr ::ng-deep .igx-calendar__date--weekend:hover, :host.white-color-attr ::ng-deep .igx-calendar__date--weekend:focus {
+      background-color: rgba(255, 255, 255, 0.12); }
+  
+     

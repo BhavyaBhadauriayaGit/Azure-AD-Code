@@ -1,0 +1,122 @@
+.container{
+
+    max-width:100%;
+}
+img{
+    width: 80%;
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    height: 40%;
+      
+    
+}
+
+.benchmark{
+   margin-top:-35px;
+    font-size:45px;
+    font-weight: bold;
+    color:red;
+    /* margin-bottom: 5px; */
+}
+.space{
+    height:25px;
+}
+.header{
+    margin-top: -8px;
+    font-size:27px;
+    font-weight: bold;
+}
+.credentials{
+  
+    margin-bottom:6px;
+    font-weight:bold;
+   
+}
+
+.error{
+    width: 100%;
+    color: red;
+    text-align: -webkit-right;
+}
+.login{
+    margin-left:20px;
+    font-family: ABBvoice;
+
+
+}
+
+.loginPage{
+    width:80%;
+    height:60%;
+    position: fixed;
+    top: 80%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+    
+    margin-top: -10px;
+    background-color: white;    
+}
+
+.loginDetails{
+    display:inline-block;
+}
+
+.formContent input{    
+    width:100%;
+    height:auto;
+    opacity: 80%;
+    border-radius: 2px;
+    
+}
+
+.btn-primary{    
+width: auto;
+height: auto;
+}
+
+.menu{width:100%;}
+
+.icon-email {
+    background: url('../../assets/images/emailBlack.png');
+    height: 16px;
+    width: 17px;
+    display: inline-flex;
+}
+.icon-password {
+    background: url('../../assets/images/passwordBlack.png');
+    height: 16px;
+    width: 20px;
+    display: inline-flex;
+}
+.text{
+    font-size:14px;
+    font-weight: bold;
+}
+
+.loginbtn{
+    width:122px;
+    border-radius:0px;
+    height:33px;
+}
+
+.labelName{
+    font-weight: lighter;
+    color:#262626;
+    font-size:14px;
+}
+
+.inputbox{
+    border-radius:0px;
+    width:307px;
+    
+}
+footer{
+    float:right;
+}
+.version{
+  margin-right:15px;
+}

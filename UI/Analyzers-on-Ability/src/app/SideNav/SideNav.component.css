@@ -1,0 +1,20 @@
+.example-container {
+    
+   width:50px;
+    height: 100%;    
+    background: #262626;    
+    border: 1px solid #262626;
+    align-content: center;
+    margin:0px;
+   
+    
+  }
+
+ .navIcon{
+   width:22px;
+   height:16px;
+   margin:15px;
+   
+ }
+
+  

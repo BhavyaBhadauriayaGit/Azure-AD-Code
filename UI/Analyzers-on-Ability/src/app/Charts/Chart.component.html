@@ -1,0 +1,14 @@
+<div class="chart"id="Dchart">
+        <canvas *ngIf = "loaded" baseChart 
+                    [data] ="doughnutChartData"
+              
+                    [labels]="doughnutChartLabels"
+                    [chartType]="doughnutChartType"
+                    [colors]="doughnutChartcolor"
+                   
+                    [legend]="doughnutChartData"
+                    [options]="doughnutChartOptions"
+                    (chartHover)="chartHovered($event)"
+                    (chartClick)="chartClicked($event)">
+                </canvas>
+      </div>
